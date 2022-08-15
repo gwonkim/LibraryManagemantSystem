@@ -2,6 +2,8 @@ mvnw
 mvnw.cmd
 .mvn
 src/test/java/net/
+src/main/java/com/lms/Library2Application.java
+src/test/java/com/lms/Library2ApplicationTests.java
 
 .factorypath
 

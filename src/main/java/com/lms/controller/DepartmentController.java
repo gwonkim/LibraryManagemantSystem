@@ -1,26 +1,27 @@
 package com.lms.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lms.entity.Department;
+import com.lms.entity.User;
 import com.lms.repository.DepartmentRepository;
 
-@Controller
+@RestController
+@RequestMapping("department")
 public class DepartmentController {
 
     @Autowired DepartmentRepository departmentRepository;
-
-    @RequestMapping("department/list1")
-    public String list1(Model model) {
-        model.addAttribute("departments", departmentRepository.findAll());
-        return "department/list1";
+    
+    // 그룹 리스트
+    @GetMapping("list")
+    public List<Department> create(Model model) {
+        return departmentRepository.findAll();
     }
-
-    @RequestMapping("department/list2")
-    public String list2(Model model) {
-        model.addAttribute("departments", departmentRepository.findAll());
-        return "department/list2";
-    }
+    
 }

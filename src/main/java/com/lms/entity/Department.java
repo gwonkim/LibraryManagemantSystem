@@ -21,7 +21,7 @@ public class Department {
     int period;
     int volume;
     
-    @OneToMany(mappedBy="department")
-    List<User> users;
+//    @OneToMany(mappedBy="department")
+//    List<User> users;
 
 }

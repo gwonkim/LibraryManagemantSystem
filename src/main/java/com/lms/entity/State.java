@@ -16,11 +16,11 @@ public class State {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-
+    
     String state;
     
-    @OneToMany(mappedBy="state")
-    List<Book> books;
-    List<Borrow> borrows;
+//    @OneToMany(mappedBy="state")
+//    List<Book> books;
+//    List<BookBorrow> borrows;
 
 }

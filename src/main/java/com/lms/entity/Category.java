@@ -19,7 +19,7 @@ public class Category {
 
     String name;
     
-    @OneToMany(mappedBy="department")
-    List<Book> books;
+//    @OneToMany(mappedBy="Category")
+//    List<Book> books;
 
 }

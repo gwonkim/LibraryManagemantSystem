@@ -22,21 +22,18 @@ public class Book {
     String title;
     String author;
     String publisher;
-    int isbn;
-    int catgory_id;
-    int state_id;
+    long isbn;
     String call_num;
     
     @ManyToOne
     @JoinColumn(name = "state_id")
-    State state;
+    State states;
     
     @ManyToOne
     @JoinColumn(name = "category_id")
     Category category;
     
-    
-    @OneToMany(mappedBy="return")
-    List<Return> returns;
+//    @OneToMany(mappedBy="Book")
+//    List<BookReturn> bookReturn;
 
 }

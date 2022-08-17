@@ -16,7 +16,6 @@ public class State {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    
     String state;
     
 //    @OneToMany(mappedBy="state")

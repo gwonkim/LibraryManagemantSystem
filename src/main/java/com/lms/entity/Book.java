@@ -32,8 +32,4 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "category_id")
     Category category;
-    
-//    @OneToMany(mappedBy="Book")
-//    List<BookReturn> bookReturn;
-
 }

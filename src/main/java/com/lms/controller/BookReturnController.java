@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.lms.repository.BookReturnRepository;
 
 @RestController
 @RequestMapping("return")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BookReturnController {
     @Autowired BookReturnRepository bookReturnRepository;
 

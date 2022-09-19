@@ -22,7 +22,7 @@ public class DepartmentController {
     
     // 그룹 리스트
     @GetMapping("list")
-    public List<Department> create(Model model) {
+    public List<Department> list(Model model) {
         return departmentRepository.findAll();
     }
     

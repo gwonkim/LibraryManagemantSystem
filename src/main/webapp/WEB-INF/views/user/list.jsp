@@ -20,23 +20,25 @@
   <table class="list">
     <thead>
       <tr>
-        <th>아이디</th>
+        <th>대출ID</th>
         <th>이름</th>
-        <th>그룹</th>
-        <th>전화번호</th>
+        <th>ID</th>
         <th>성별</th>
+        <th>전화번호</th>
         <th>이메일</th>
+        <th>그룹</th>
       </tr>
     </thead>
     <tbody>
       <c:forEach var="user" items="${ users }">
         <tr data-url="edit?id=${ user.id }">
-          <td>${ user.id }</td>
+          <td>${ user.borrow_id }</td>
           <td>${ user.name }</td>
-          <td>${ user.department.name }</td>
-          <td>${ user.phone }</td>
+          <td>${ user.user_id }</td>
           <td>${ user.sex }</td>
+          <td>${ user.phone }</td>
           <td>${ user.email }</td>
+          <td>${ user.department.name }</td>
         </tr>
       </c:forEach>
     </tbody>

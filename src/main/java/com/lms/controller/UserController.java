@@ -24,8 +24,6 @@ public class UserController {
 	@Autowired
 	DepartmentRepository departmentRepository;
 
-	// 내부 통신
-
 	@RequestMapping("list")
 	public String list(Model model) {
 		List<User> users = userRepository.findAll();
@@ -62,7 +60,6 @@ public class UserController {
 
 	@PostMapping("edit")
 	public String edit(Model model, User user) {
-		System.out.println("user" + user);
 		userRepository.save(user);
 		return "redirect:list";
 	}

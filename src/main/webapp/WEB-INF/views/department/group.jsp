@@ -13,7 +13,7 @@
 <style>
 a.btn {
 	float: right;
-	margin: -20px 0 5px 10px;
+	margin: -20px 0 5px 0;
 }
 
 td:nth-child(1), td:nth-child(5) {
@@ -23,10 +23,28 @@ td:nth-child(1), td:nth-child(5) {
 </head>
 <body>
 	<div class="container">
-		<h1>관리자 페이지</h1>
-		<a href="/user/list" class="btn">사용자 목록</a>
-		<a href="/book/list" class="btn">자료 목록</a>
-		<a href="/department/list" class="btn">그룹별 사용자 목록</a>
+		<h1>그룹 목록</h1>
+		<a href="create" class="btn">그룹 등록</a>
+		<table class="list">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>그룹명</th>
+					<th>대출기간</th>
+					<th>대출권수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="department" items="${ departments }">
+					<tr data-url="edit?id=${ department.id }">
+						<td>${ department.id }</td>
+						<td>${ department.name }</td>
+						<td>${ department.period }</td>
+						<td>${ department.volume }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

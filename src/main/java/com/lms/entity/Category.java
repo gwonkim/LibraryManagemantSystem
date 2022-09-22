@@ -8,7 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -19,7 +22,8 @@ public class Category {
 
     String name;
     
-//    @OneToMany(mappedBy="Category")
-//    List<Book> books;
-
+//	@JsonIgnore
+//	@ToString.Exclude
+//	@OneToMany(mappedBy = "Category")
+//	List<Book> book;
 }

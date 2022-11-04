@@ -52,7 +52,7 @@ public class DepartmentController {
 
 	@GetMapping("edit")
 	public String edit(Model model, @RequestParam("id") int id) {
-		Department department = departmentRepository.findById(id).get();
+		Department department = departmentRepository.findById(id);
 		model.addAttribute("department", department);
 		return "department/edit";
 	}

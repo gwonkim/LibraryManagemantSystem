@@ -46,7 +46,7 @@ button {
 <body>
 	<div class="container">
 		<form:form method="post" modelAttribute="user">
-			<div class="title">회원 ${ user.id > 0 ? "수정" : "등록" }(관리자용)</div>
+			<div class="title">회원가입(사용자용)</div>
 			<table>
 				<tr>
 					<td>대출ID:</td>
@@ -77,19 +77,11 @@ button {
 					<td>이메일:</td>
 					<td><form:input path="email" type="email" /></td>
 				</tr>
-				<tr>
-					<td>그룹:</td>
-					<td><form:select path="department.id" itemValue="id"
-							itemLabel="name" items="${ departments }" /></td>
-				</tr>
 			</table>
 			<hr />
 			<div>
 				<button type="submit" class="btn">저장</button>
-				<c:if test="${ user.id > 0 }">
-					<a href="delete?id=${ user.id }" class="btn" data-confirm-delete>삭제</a>
-				</c:if>
-				<a href="list" class="btn">목록으로</a>
+				<a href="/" class="btn">홈으로</a>
 			</div>
 		</form:form>
 	</div>

@@ -10,79 +10,49 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}common.js"></script>
-<link rel="stylesheet" href="${R}common.css">
-<style>
-form {
-	width: 600px;
-	margin: auto;
-	box-shadow: 0 0 4px lightgray, 2px 2px 4px gray;
-	overflow: auto;
-}
-
-div.title {
-	font-size: 20pt;
-	padding: 10px;
-	background-color: #eee;
-}
-
-table {
-	margin: 20px;
-}
-
-td {
-	min-width: 100;
-	padding: 5px;
-}
-
-td:nth-child(1) {
-	text-align: right;
-}
-
-button {
-	margin: 5px 0 20px 20px;
-}
-</style>
+<link rel="stylesheet" href="${R}form.css">
 </head>
 <body>
-	<div class="container">
+	<div>
 		<form:form method="post" modelAttribute="user">
-			<div class="title">회원가입(사용자용)</div>
-			<table>
-				<tr>
-					<td>대출ID:</td>
-					<td><form:input path="borrow_id" disabled="true" /></td>
-				</tr>
-				<tr>
-					<td>이름:</td>
-					<td><form:input path="name" /></td>
-				</tr>
-				<tr>
-					<td>ID:</td>
-					<td><form:input path="user_id" /></td>
-				</tr>
-				<tr>
-					<td>비밀번호:</td>
-					<td><form:input path="password" type="password" /></td>
-				</tr>
-				<tr>
-					<td>성별:</td>
-					<td><form:radiobutton path="sex" value="남" label="남자" /> <form:radiobutton
-							path="sex" value="여" label="여자" /></td>
-				</tr>
-				<tr>
-					<td>전화:</td>
-					<td><form:input path="phone" /></td>
-				</tr>
-				<tr>
-					<td>이메일:</td>
-					<td><form:input path="email" type="email" /></td>
-				</tr>
-			</table>
-			<hr />
+			<h1>회원가입(사용자용)</h1>
 			<div>
-				<button type="submit" class="btn">저장</button>
-				<a href="/" class="btn">홈으로</a>
+				<p>이름</p>
+				<form:input path="name" />
+				<form:errors path="name" class="error" />
+			</div>
+			<div>
+				<p>ID</p>
+				<form:input path="userId" />
+				<form:errors path="userId" class="error" />
+			</div>
+			<div>
+				<p>비밀번호</p>
+				<form:input path="password" type="password" />
+				<form:errors path="password" class="error" />
+			</div>
+			<div class="radio">
+				<p>성별</p>
+				<form:radiobutton path="sex" value="남" label="남자" />
+				<form:radiobutton path="sex" value="여" label="여자" />
+				<form:errors path="sex" class="error" />
+			</div>
+			<div>
+				<p>전화</p>
+				<form:input path="phone" placeholder="010-1111-2222" />
+				<form:errors path="phone" class="error" />
+			</div>
+			<div>
+				<p>이메일</p>
+				<form:input path="email" type="email" />
+				<form:errors path="email" class="error" />
+			</div>
+			<br />
+			<hr />
+			<div class="submit">
+				<button type="submit">회원가입</button>
+				<a href="/" class="link">홈</a> | <a href="/login" class="link">로그인</a>
 			</div>
 		</form:form>
+
 	</div>
-</body>

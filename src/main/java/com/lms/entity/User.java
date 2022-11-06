@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,23 +25,34 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 
-	String borrow_id;
-	String name;
-	String user_id;
-	String sex;
-	String email;
-	String phone;
+	String borrowId;
 
+	@Size(min=2, max=30)
+	String name;
+	
+	@NotEmpty @NotBlank
+	@Size(min=4, max=12)
+	String userId;
+	
+	String sex;
+	String phone;
+	
+	@NotEmpty(message="이메일을 입력해주세요")
+    @Email
+	String email;
+	
+
+	@NotEmpty @NotBlank
 	@JsonIgnore
 	private String password;
 
 	@ManyToOne
-	@JoinColumn(name = "department_id")
+	@JoinColumn(name = "departmentId")
 	Department department;
 
-	public String borrowCode(Department depart, List<User> users) {
+	public String borrowCode(Department depart, int size) {
 		String borrowID = "";
-		int userLength = users.size() + 1;
+		int userLength = size + 1;
 		switch (depart.id) {
 		case 1: 
 			borrowID += 'A';

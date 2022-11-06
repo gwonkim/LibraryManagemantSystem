@@ -22,11 +22,11 @@ public class BookBorrow {
 	Date return_date;
 	
     @ManyToOne
-    @JoinColumn(name = "book_id")
+    @JoinColumn(name = "bookId")
     Book book;
     
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     User user;
     
 //    @ManyToOne

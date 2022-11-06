@@ -20,13 +20,13 @@ public class Book {
     String author;
     String publisher;
     long isbn;
-    String call_num;
+    String callNum;
     
     @ManyToOne
-    @JoinColumn(name = "state_id")
+    @JoinColumn(name = "stateId")
     State state;
     
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "categoryId")
     Category category;
 }

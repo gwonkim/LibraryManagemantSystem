@@ -10,57 +10,26 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}common.js"></script>
-<link rel="stylesheet" href="${R}common.css">
-<style>
-form {
-	width: 600px;
-	margin: auto;
-	box-shadow: 0 0 4px lightgray, 2px 2px 4px gray;
-	overflow: auto;
-}
-
-div.title {
-	font-size: 20pt;
-	padding: 10px;
-	background-color: #eee;
-}
-
-table {
-	margin: 20px;
-}
-
-td {
-	min-width: 100;
-	padding: 5px;
-}
-
-td:nth-child(1) {
-	text-align: right;
-}
-
-button {
-	margin: 5px 0 20px 20px;
-}
-</style>
+<link rel="stylesheet" href="${R}form.css">
 </head>
 <body>
-	<div class="container">
-		<form:form method="post" modelAttribute="user">
-			<div class="title">회원가입</div>
-			<table>
-				<tr>
-					<td>ID:</td>
-					<td><form:input path="user_id" /></td>
-				</tr>
-				<tr>
-					<td>비밀번호:</td>
-					<td><form:input path="password" type="password" /></td>
-				</tr>
-			</table>
-			<hr />
+	<div>
+		<form:form method="post" modelAttribute="login">
+			<h1>로그인</h1>
 			<div>
-				<button type="submit" class="btn">저장</button>
-				<a href="/" class="btn">홈으로</a>
+				<p>ID</p>
+				<form:input path="userId" />
+			</div>
+			<form:errors path="userId" class="error" />
+			<div>
+				<p>비밀번호</p>
+				<form:input path="password" type="password" />
+				<form:errors path="password" class="error" />
+			</div>
+			<hr />
+			<div class="submit">
+				<button type="submit">로그인</button>
+				<a href="/" class="link">홈</a> | <a href="/signup" class="link">회원가입</a>
 			</div>
 		</form:form>
 	</div>

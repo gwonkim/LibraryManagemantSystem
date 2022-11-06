@@ -43,8 +43,8 @@ public class UserController {
 	@PostMapping("create")
 	public String create(Model model, User user) {
 		List<User> users = userRepository.findAll();
-		String borrowId = user.borrowCode(user.getDepartment(), users);
-		user.setBorrow_id(borrowId);
+		String borrowId = user.borrowCode(user.getDepartment(), users.size());
+		user.setBorrowId(borrowId);
 		userRepository.save(user);
 		return "redirect:list";
 	}

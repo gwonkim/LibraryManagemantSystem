@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lms.entity.Book;
 import com.lms.entity.State;
 import com.lms.entity.Category;
+import com.lms.model.Pagination;
 import com.lms.repository.BookRepository;
 import com.lms.repository.DepartmentRepository;
 import com.lms.repository.CategoryRepository;
@@ -21,23 +22,31 @@ import com.lms.repository.StateRepository;
 @Controller
 @RequestMapping("book")
 public class BookController {
-    @Autowired BookRepository bookRepository;
-    @Autowired DepartmentRepository departmentRepository;
-    @Autowired CategoryRepository categoryRepository;
-    @Autowired StateRepository stateRepository;
+	@Autowired
+	BookRepository bookRepository;
+	@Autowired
+	DepartmentRepository departmentRepository;
+	@Autowired
+	CategoryRepository categoryRepository;
+	@Autowired
+	StateRepository stateRepository;
 
-    // 책목록
+	// 책목록
 	@RequestMapping("list")
-	public String list(Model model) {
+	public String list(Model model, Pagination pagination) {
+		List<Book> books2 = bookRepository.findByCategoryId(pagination);
 		List<Book> books = bookRepository.findAll();
+		
+		model.addAttribute("category", categoryRepository.findAll());
 		model.addAttribute("books", books);
+		model.addAttribute("books2", books2);
 		return "book/list";
 	}
-    
-    // 신규 자료 등록
+
+	// 신규 자료 등록
 	@GetMapping("register")
 	public String create(Model model) {
-        Book book = new Book();
+		Book book = new Book();
 		List<State> staties = stateRepository.findAll();
 		List<Category> categories = categoryRepository.findAll();
 		model.addAttribute("book", book);
@@ -47,12 +56,15 @@ public class BookController {
 	}
 
 	@PostMapping("register")
-	public String create(Model model, Book book) {
+	public String create(Model model, Book book, Pagination pagination) {
 		bookRepository.save(book);
-		return "redirect:list";
+		pagination.setDi(0);
+		int lastPage = (int) Math.ceil((double) bookRepository.count() / pagination.getSz());
+		pagination.setPg(lastPage);
+		return "redirect:list?" + pagination.getQueryString();
 	}
-    
-    // 자료 수정
+
+	// 자료 수정
 	@GetMapping("edit")
 	public String edit(Model model, @RequestParam("id") int id) {
 		Book book = bookRepository.findById(id).get();
@@ -64,16 +76,16 @@ public class BookController {
 		return "book/edit";
 	}
 
-	@PostMapping("edit")
-	public String edit(Model model, Book book) {
+	@PostMapping(value = "edit", params = "cmd=save")
+	public String edit(Model model, Book book, Pagination pagination) {
 		bookRepository.save(book);
-		return "redirect:list";
+		return "redirect:list?" + pagination.getQueryString();
 	}
 
 	// 자료 삭제
-    @RequestMapping("delete")
-    public String delete(Model model, @RequestParam("id") int id) {
-    	bookRepository.deleteById(id);
-        return "redirect:list";
-    }
+	@PostMapping(value = "edit", params = "cmd=delete")
+	public String delete(Model model, @RequestParam("id") int id, Pagination pagination) {
+		bookRepository.deleteById(id);
+		return "redirect:list?" + pagination.getQueryString();
+	}
 }

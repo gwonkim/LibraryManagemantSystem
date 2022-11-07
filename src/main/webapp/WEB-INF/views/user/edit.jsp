@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="${R}common.js"></script>
-<link rel="stylesheet" href="${R}common.css">
+<script src="${R}res/common.js"></script>
+<link rel="stylesheet" href="${R}res/form.css">
 <style>
 form {
 	width: 600px;
@@ -46,7 +46,7 @@ button {
 <body>
 	<div class="container">
 		<form:form method="post" modelAttribute="user">
-			<div class="title">회원 ${ user.id > 0 ? "수정" : "등록" }(관리자용)</div>
+			<div class="title">회원 ${ user.id > 0 ? "수정" : "등록" }(사용자용)</div>
 			<table>
 				<tr>
 					<td>대출ID:</td>

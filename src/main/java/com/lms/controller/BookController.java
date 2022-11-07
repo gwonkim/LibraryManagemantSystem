@@ -20,7 +20,7 @@ import com.lms.repository.CategoryRepository;
 import com.lms.repository.StateRepository;
 
 @Controller
-@RequestMapping("book")
+@RequestMapping("admin/book")
 public class BookController {
 	@Autowired
 	BookRepository bookRepository;
@@ -40,7 +40,7 @@ public class BookController {
 		model.addAttribute("category", categoryRepository.findAll());
 		model.addAttribute("books", books);
 		model.addAttribute("books2", books2);
-		return "book/list";
+		return "admin/book/list";
 	}
 
 	// 신규 자료 등록
@@ -52,7 +52,7 @@ public class BookController {
 		model.addAttribute("book", book);
 		model.addAttribute("staties", staties);
 		model.addAttribute("categories", categories);
-		return "book/edit";
+		return "admin/book/edit";
 	}
 
 	@PostMapping("register")
@@ -73,7 +73,7 @@ public class BookController {
 		model.addAttribute("book", book);
 		model.addAttribute("staties", staties);
 		model.addAttribute("categories", categories);
-		return "book/edit";
+		return "admin/book/edit";
 	}
 
 	@PostMapping(value = "edit", params = "cmd=save")

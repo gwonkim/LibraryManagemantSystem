@@ -27,13 +27,13 @@
 		</div>
 		<div>
 			<p>비밀번호</p>
-			<form:input path="passwd1" type="password" />
-			<form:errors path="passwd1" class="error" />
+			<form:input path="password1" type="password" />
+			<form:errors path="password1" class="error" />
 		</div>
 		<div>
 			<p>비밀번호 학인</p>
-			<form:password path="passwd2" />
-			<form:errors path="passwd2" class="error" />
+			<form:password path="password2" />
+			<form:errors path="password2" class="error" />
 		</div>
 		<div>
 			<p>이메일</p>

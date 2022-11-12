@@ -27,10 +27,9 @@ public class MyUserDetails implements UserDetails {
 	final String sex;
 	final String phone;
 	final Department department;
-
 	final String borrowId;
 
-	public MyUserDetails(User user) { //
+	public MyUserDetails(User user) {
 		switch (user.getDepartment().getId()) {
 		case 1: // 관리자
 			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
@@ -39,7 +38,7 @@ public class MyUserDetails implements UserDetails {
 			authorities.add(new SimpleGrantedAuthority("ROLE_HONOR"));
 			break;
 		case 3: // 일반회원
-			authorities.add(new SimpleGrantedAuthority("ROLE_GENERAL"));
+			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 			break;
 		}
 		
@@ -53,6 +52,5 @@ public class MyUserDetails implements UserDetails {
 		this.sex = user.getSex();
 		this.phone = user.getPhone();
 		this.department = user.getDepartment();
-
 	}
 }

@@ -1,0 +1,96 @@
+.info {
+	text-align: left;
+	width: 100%;
+	border: #000 solid 1px;
+	font-size: 1em;
+}
+
+.title {
+	background: #f2f2f2;
+	font-size: 2.8em;
+	margin-right: 15px;
+	width: 20vw;
+	min-width: 180px;
+	max-width: 200px;
+}
+
+.userInfo {
+	font-size: 1.5em;
+}
+
+.userInfo>div {
+	min-width: 120px;
+	max-width: 230px;
+	width: 10vw;
+	display: inline-block;
+	margin-right: 15px;
+	background: #f2f2f2;
+}
+
+
+.custom-btn {
+	text-align: center;
+	vertical-align: middle;
+	min-width: 180px;
+	min-height: 180px;
+	max-width: 230px;
+	max-height: 230px;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 25px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px
+		0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+	outline: none;
+}
+
+.btn {
+	background: rgb(96, 9, 240);
+	background: linear-gradient(0deg, rgba(80, 9, 100, 1) 0%,
+		rgba(49, 5, 240, 1) 100%);
+	border: none;
+}
+
+.btn>a {
+	font-size: 2em;
+	color: #fff;
+	text-decoration: none;
+}
+
+.btn:before {
+	height: 0%;
+	width: 2px;
+}
+
+.btn:hover {
+	box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0
+		rgba(116, 125, 136, .5), inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+		inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+.menu {
+	width: 20vw;
+	margin-top: 25px;
+	display: fixed;
+}
+
+.box {
+	margin: 10px;
+	min-width: 180px;
+	min-height: 100px;
+	max-width: 230px;
+	max-height: 150px;
+	width: 20vw;
+	height: 10vw;
+}
+
+.box>a {
+	color: #000;
+	text-decoration: none;
+}

@@ -18,9 +18,9 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 
+	String userId;
 	String borrowId;
 	String name;
-	String userId;
 	String sex;
 	String phone;
 	String email;

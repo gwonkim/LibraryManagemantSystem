@@ -18,8 +18,8 @@ public class BookBorrow {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	Date borrow_date;
-	Date return_date;
+	Date borrowDate;
+	Date returnDate;
 	
     @ManyToOne
     @JoinColumn(name = "bookId")
@@ -30,6 +30,6 @@ public class BookBorrow {
     User user;
     
 //    @ManyToOne
-//    @JoinColumn(name = "state_id")
+//    @JoinColumn(name = "stateId")
 //    State state;
 }

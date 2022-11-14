@@ -17,8 +17,8 @@ public class BookReturn {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	Date borrow_date;
-	Date return_date;
+	Date borrowDate;
+	Date returnDate;
 	
     @ManyToOne
     @JoinColumn(name = "bookId")
@@ -28,7 +28,7 @@ public class BookReturn {
     @JoinColumn(name = "userId")
     User user;
     
-//    @ManyToOne
-//    @JoinColumn(name = "state_id")
-//    State state;
+   @ManyToOne
+   @JoinColumn(name = "stateId")
+   State state;
 }

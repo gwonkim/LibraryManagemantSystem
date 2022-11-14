@@ -13,6 +13,7 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}res/common.js"></script>
 <link rel="stylesheet" type="text/css" href="${R}res/common.css" />
+<link rel="stylesheet" type="text/css" href="${R}res/table.css" />
 <style>
 a.btn {
 	float: right;
@@ -27,8 +28,11 @@ td:nth-child(1), td:nth-child(5) {
 <body>
 	<div class="container">
 		<h1>자료 목록</h1>
-		<a href="register" class="btn">자료 등록</a>
-
+		<div >
+			<a href="register" class="btn">자료 등록</a>
+			<a href="state" class="btn">자료 대출 반납</a>
+		</div>
+		
 		<form:form method="get" modelAttribute="pagination">
 			<form:hidden path="pg" value="1" />
 			<form:hidden path="sz" />
@@ -71,10 +75,6 @@ td:nth-child(1), td:nth-child(5) {
 		</table>
 		<my:pagination pageSize="${ pagination.sz }"
 			recordCount="${ pagination.recordCount }" queryStringName="pg" />
-
-
-
-
 	</div>
 </body>
 </html>

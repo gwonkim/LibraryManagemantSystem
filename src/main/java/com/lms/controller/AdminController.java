@@ -1,6 +1,7 @@
 package com.lms.controller;
 
 import com.lms.entity.Book;
+import com.lms.entity.BookBorrow;
 import com.lms.entity.BookReturn;
 import com.lms.entity.Category;
 import com.lms.entity.Department;
@@ -8,6 +9,7 @@ import com.lms.entity.State;
 import com.lms.entity.User;
 import com.lms.model.Pagination;
 import com.lms.model.UserRegistration;
+import com.lms.repository.BookBorrowRepository;
 import com.lms.repository.BookRepository;
 import com.lms.repository.BookReturnRepository;
 import com.lms.repository.CategoryRepository;
@@ -43,11 +45,16 @@ public class AdminController {
   BookReturnRepository bookReturnRepository;
 
   @Autowired
+  BookBorrowRepository bookBorrowRepository;
+
+  @Autowired
   CategoryRepository categoryRepository;
 
-  @Autowired StateRepository stateRepository;
+  @Autowired
+  StateRepository stateRepository;
 
-  @Autowired UserService userService;
+  @Autowired
+  UserService userService;
 
   @RequestMapping("index")
   public String index(Model model) {
@@ -71,12 +78,10 @@ public class AdminController {
 
   @PostMapping("user/register")
   public String userCreate(
-    Model model,
-    @Valid UserRegistration userRegistration,
-    BindingResult bindingResult
-  ) {
+      Model model,
+      @Valid UserRegistration userRegistration,
+      BindingResult bindingResult) {
     if (userService.hasErrors(userRegistration, bindingResult)) {
-      // System.out.println("관리자 회원 등록 : bindingResult" + bindingResult); //
       model.addAttribute("departments", departmentRepository.findAll());
       return "admin/user/edit";
     }
@@ -134,8 +139,7 @@ public class AdminController {
     bookRepository.save(book);
     pagination.setDi(0);
     int lastPage = (int) Math.ceil(
-      (double) bookRepository.count() / pagination.getSz()
-    );
+        (double) bookRepository.count() / pagination.getSz());
     pagination.setPg(lastPage);
     return "redirect:list?" + pagination.getQueryString();
   }
@@ -159,12 +163,21 @@ public class AdminController {
 
   @PostMapping(value = "book/edit", params = "cmd=delete")
   public String bookDelete(
-    Model model,
-    @RequestParam("id") int id,
-    Pagination pagination
-  ) {
+      Model model,
+      @RequestParam("id") int id,
+      Pagination pagination) {
     bookRepository.deleteById(id);
     return "redirect:list?" + pagination.getQueryString();
+  }
+
+  // BOOK 대출반납
+  @RequestMapping("book/state")
+  public String returnList(Model model) {
+    List<BookReturn> bookReturns = bookReturnRepository.findAll();
+    List<BookBorrow> bookBorrows = bookBorrowRepository.findAll();
+    model.addAttribute("bookReturns", bookReturns);
+    model.addAttribute("bookBorrows", bookBorrows);
+    return "admin/book/state";
   }
 
   // Department
@@ -212,13 +225,5 @@ public class AdminController {
   public String departmentDelete(Model model, @RequestParam("id") int id) {
     departmentRepository.deleteById(id);
     return "redirect:group";
-  }
-
-  // BOOK RETURN
-  @RequestMapping("return/list")
-  public String returnList(Model model) {
-    List<BookReturn> bookreturns = bookReturnRepository.findAll();
-    model.addAttribute("bookreturns", bookreturns);
-    return "admin/return/list";
   }
 }

@@ -1,0 +1,25 @@
+.slide_img {
+  width: 100%;
+  min-width: 500px;
+/*   margin: 10px; */
+}
+
+.prev,
+.next {
+  position: relative;
+  font-size: 50px;
+  z-index: 10;
+  transform: translate(0%, 90%);
+  /* transform: translateY(100px); */
+  /*    transform: translateY(-50%); */
+}
+
+.slick-dots {
+/*   bottom: -25px;
+  width: 100%;
+  list-style: none;
+  text-align: end;
+  position: absolute;
+  right: 15px;
+  padding: 0; */
+}

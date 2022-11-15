@@ -1,33 +1,116 @@
+body {
+  top: 0;
+  width: 100vw;
+  height: 100vw;
+}
+
+.contents {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 80px auto;
+  width: 100vw;
+  height: 100vw;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 1200px;
+  background: #8080c0;
+}
+
+.contentsM {
+  display: inline-block;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 50px auto;
+  width: 100vw;
+  max-width: 1200px;
+  text-align: center;
+  vertical-align: middle;
+  background: #8080c0;
+  height: 100vw;
+}
+
+.left_contents {
+  background-color: cornflowerblue;
+  width: 25%;
+  color: #fff;
+}
+
+.right_contents {
+  width: 75%;
+  background-color: darkseagreen;
+  margin: 10px 0;
+}
+
+.mobile {
+  width: 600px;
+  width: 100%;
+}
+
 .info {
-	text-align: left;
-	width: 100%;
-	border: #000 solid 1px;
-	font-size: 1em;
+  background-color: #383636;
+  text-align: left;
+  padding: 30px;
+  margin: 10px 0;
 }
 
 .title {
-	background: #f2f2f2;
-	font-size: 2.8em;
-	margin-right: 15px;
-	width: 20vw;
-	min-width: 180px;
-	max-width: 200px;
+  font-size: 2.8em;
+  margin-right: 15px;
+  min-width: 180px;
+  max-width: 200px;
 }
 
-.userInfo {
-	font-size: 1.5em;
+.userInfo > div {
+  width: 200px;
+  display: block;
+  margin-top: 10px;
 }
 
-.userInfo>div {
-	min-width: 120px;
-	max-width: 230px;
-	width: 10vw;
-	display: inline-block;
-	margin-right: 15px;
-	background: #f2f2f2;
+.info_text {
+	color: #aeaeae;
+	display: inline;
+	margin-right: 13px;
 }
 
+.menu {
+  padding: 30px;
+  margin: 10px 0;
+  background-color: #383636;
+  list-style-type: none;
+  text-align: left;
+}
 
+.menu_btn {
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.menu_btn:hover {
+  cursor: pointer;
+}
+
+.tab {
+	visibility: visible;
+}
+
+.tab_hidden {
+	visibility: hidden;
+}
+
+/* ICON */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" -25, "opsz" 48;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" -25, "opsz" 48;
+}
+
+/* 
 .custom-btn {
 	text-align: center;
 	vertical-align: middle;
@@ -94,3 +177,4 @@
 	color: #000;
 	text-decoration: none;
 }
+ */

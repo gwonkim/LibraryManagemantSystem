@@ -14,26 +14,44 @@
 <script src="${R}res/common.js"></script>
 <link rel="stylesheet" type="text/css" href="${R}res/common.css" />
 <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
-<style>
-a.btn {
-	float: right;
-	margin: -20px 0 5px 0;
-}
-
-td:nth-child(1), td:nth-child(5) {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="${R}res/index.css" />
 </head>
 <body>
+	<div class="top">
+		<span>
+		  <a target="_blank" href="https://github.com/gwonkim" class="top_link">깃허브</a>
+		  |
+		  <a target="_blank" href="https://github.com/gwonkim" class="top_link">유튜브설명영상</a>
+		</span>
+	  </div>
+	  <div class="nav">
+		<span class="nav_left" id="navL">
+		  <img src="${R}image/library2.png" class="nav_img" />
+		</span>
+		<a class="nav_title" href="${R}">지원도서관</a>
+		<sec:authorize access="authenticated">
+		  <span class="nav_right" id="navR">
+			<a href="register" class="nav_link">자료 등록</a>
+			<a href="state" class="nav_link">자료 대출 반납</a>
+		  </span>
+		</sec:authorize>
+	  </div>
+
 	<div class="container">
 		<h1>자료 목록</h1>
-		<div >
-			<a href="register" class="btn">자료 등록</a>
-			<a href="state" class="btn">자료 대출 반납</a>
+		<div>
+			<form>
+				<label>이름</label>
+				<input type="text" name="srchText" value="${ srchText }" placeholder="검색조건" />
+				<button type="submit">조회</button>
+			</form>			
 		</div>
-		
-		<form:form method="get" modelAttribute="pagination">
+
+		<br />
+		<br />
+		<br />
+		<br />
+		<!-- <form:form method="get" modelAttribute="srchText">
 			<form:hidden path="pg" value="1" />
 			<form:hidden path="sz" />
 			<span>청구기호:</span>
@@ -42,8 +60,7 @@ td:nth-child(1), td:nth-child(5) {
 				<form:options itemValue="id" itemLabel="name" items="${ category }" />
 			</form:select>
 			<button type="submit" class="btn">검색</button>
-			<a href="create?${pagination.queryString}" class="btn">자료등록</a>
-		</form:form>
+		</form:form> -->
 
 		<table class="list">
 			<thead>
@@ -73,8 +90,8 @@ td:nth-child(1), td:nth-child(5) {
 				</c:forEach>
 			</tbody>
 		</table>
-		<my:pagination pageSize="${ pagination.sz }"
-			recordCount="${ pagination.recordCount }" queryStringName="pg" />
+<!-- 		<my:pagination pageSize="${ pagination.sz }"
+			recordCount="${ pagination.recordCount }" queryStringName="pg" /> -->
 	</div>
 </body>
 </html>

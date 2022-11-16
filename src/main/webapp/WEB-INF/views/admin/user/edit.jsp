@@ -10,8 +10,22 @@ prefix="form"%>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="${R}res/common.js"></script>
     <link rel="stylesheet" href="${R}res/form.css" />
+    <link rel="stylesheet" href="${R}res/index.css" />
   </head>
   <body>
+    <div class="top">
+      <span>
+        <a target="_blank" href="https://github.com/gwonkim" class="top_link">깃허브</a>
+        |
+        <a target="_blank" href="https://github.com/gwonkim" class="top_link">유튜브설명영상</a>
+      </span>
+    </div>
+    <div class="nav">
+      <span class="nav_left" id="navL">
+        <img src="${R}image/library2.png" class="nav_img" />
+      </span>
+      <a class="nav_title" href="${R}">지원도서관</a>
+    </div>
     <form:form method="post" modelAttribute="userRegistration">
       <h1 class="title">
         관리자 | 회원 ${ userRegistration.id > 0 ? "수정" : "등록" }

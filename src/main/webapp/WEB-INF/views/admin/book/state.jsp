@@ -8,8 +8,22 @@ prefix="c"%>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="${R}res/common.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
   </head>
   <body>
+    <div class="top">
+      <span>
+        <a target="_blank" href="https://github.com/gwonkim" class="top_link">깃허브</a>
+        |
+        <a target="_blank" href="https://github.com/gwonkim" class="top_link">유튜브설명영상</a>
+      </span>
+    </div>
+    <div class="nav">
+      <span class="nav_left" id="navL">
+        <img src="${R}image/library2.png" class="nav_img" />
+      </span>
+      <a class="nav_title" href="${R}">지원도서관</a>
+    </div>
     <div class="container">
       <h1>대출 도서 목록</h1>
       <table class="borrow list">

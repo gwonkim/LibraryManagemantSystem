@@ -13,6 +13,19 @@ prefix="form"%>
     <link rel="stylesheet" href="${R}res/form.css" />
   </head>
   <body>
+    <div class="top">
+      <span>
+        <a target="_blank" href="https://github.com/gwonkim" class="top_link">깃허브</a>
+        |
+        <a target="_blank" href="https://github.com/gwonkim" class="top_link">유튜브설명영상</a>
+      </span>
+    </div>
+    <div class="nav">
+      <span class="nav_left" id="navL">
+        <img src="${R}image/library2.png" class="nav_img" />
+      </span>
+      <a class="nav_title" href="${R}">지원도서관</a>
+    </div>
     <form:form method="post" modelAttribute="book">
       <h1 class="title">자료 ${ book.id > 0 ? "수정" : "등록" }</h1>
       <div>

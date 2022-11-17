@@ -1,0 +1,72 @@
+div.container {
+	margin: 80px auto;
+	width: 90vw;
+	text-align: center;
+	vertical-align: middle;
+	display: flex;
+}
+
+form {
+	margin: 50px auto;
+	font-size: 1em;
+	width: 35vw;
+	max-width: 700px;
+	min-width: 450px;
+}
+
+button {
+	margin: 35px 0;
+	background: blue;
+	height: 50px;
+	width: 100%;
+	height: 51px;
+}
+
+input {
+	width: 97%;
+	height: 45px;
+}
+
+input, button, select {
+	margin-bottom: 10px;
+	padding-left: 10px;
+	font-size: 1em;
+}
+
+select {
+	width: 101%;
+	height: 51px;
+}
+
+label {
+	font-weight: 400;
+	color: #444;
+	font-size: 1.1em;
+}
+
+.submit {
+	margin-top: 20px;
+}
+
+input[type='radio'] {
+	display: 'inline-block';
+	width: 80px;
+	height: 40px;
+	margin-bottom: 20px;
+}
+
+.radio {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.link {
+	text-decoration: none;
+	font-size: 1em;
+	color: #000;
+	margin: 20px;
+}
+
+.link:hover {
+	text-decoration: underline;
+}

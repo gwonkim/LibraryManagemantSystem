@@ -10,7 +10,7 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${R}common.js"></script>
-<link rel="stylesheet" href="${R}common.css">
+<link rel="stylesheet" href="${R}form.css">
 <style>
 form {
 	width: 600px;
@@ -66,7 +66,7 @@ button {
 				</tr>
 				<tr>
 					<td>청구기호:</td>
-					<td><form:input path="call_num" /></td>
+					<td><form:input path="callNum" /></td>
 				</tr>
 				<tr>
 					<td>상태:</td>

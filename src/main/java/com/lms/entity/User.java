@@ -1,7 +1,5 @@
 package com.lms.entity;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,25 +18,26 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 
-	String borrow_id;
+	String borrowId;
 	String name;
-	String user_id;
+	String userId;
 	String sex;
-	String email;
 	String phone;
-
+	String email;
+	boolean enabled;
+	
 	@JsonIgnore
 	private String password;
 
 	@ManyToOne
-	@JoinColumn(name = "department_id")
+	@JoinColumn(name = "departmentId")
 	Department department;
 
-	public String borrowCode(Department depart, List<User> users) {
+	public String borrowCode(int departId, int size) {
 		String borrowID = "";
-		int userLength = users.size() + 1;
-		switch (depart.id) {
-		case 1: 
+		int userLength = size + 1;
+		switch (departId) {
+		case 1:
 			borrowID += 'A';
 			break;
 		case 2:

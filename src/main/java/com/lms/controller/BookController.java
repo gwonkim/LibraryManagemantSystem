@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lms.entity.Book;
 import com.lms.entity.State;
-import com.lms.entity.Category;
 import com.lms.model.Pagination;
+import com.lms.entity.Category;
 import com.lms.repository.BookRepository;
 import com.lms.repository.DepartmentRepository;
 import com.lms.repository.CategoryRepository;
 import com.lms.repository.StateRepository;
 
 @Controller
-@RequestMapping("admin/book")
+@RequestMapping("book")
+// 외부인 책 검색 허용
 public class BookController {
 	@Autowired
 	BookRepository bookRepository;
@@ -31,5 +32,12 @@ public class BookController {
 	@Autowired
 	StateRepository stateRepository;
 
-	
+	@RequestMapping("list")
+	public String bookList(Model model, Pagination pagination) {
+		List<Book> books = bookRepository.findByCategoryId(pagination);
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("books", books);
+
+		return "book/list";
+	}
 }

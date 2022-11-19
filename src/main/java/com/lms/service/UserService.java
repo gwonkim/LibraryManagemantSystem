@@ -14,7 +14,6 @@ import com.lms.repository.DepartmentRepository;
 
 @Service
 public class UserService {
-
 	@Autowired
 	UserRepository userRepository;
 	@Autowired

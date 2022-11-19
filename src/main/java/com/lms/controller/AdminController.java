@@ -112,17 +112,6 @@ public class AdminController {
   }
 
   // BOOK
-  @RequestMapping("book/list")
-  public String bookList(Model model, Pagination pagination) {
-    List<Book> books2 = bookRepository.findByCategoryId(pagination);
-    List<Book> books = bookRepository.findAll();
-
-    model.addAttribute("category", categoryRepository.findAll());
-    model.addAttribute("books", books);
-    model.addAttribute("books2", books2);
-    return "admin/book/list";
-  }
-
   @GetMapping("book/register")
   public String bookRegister(Model model) {
     Book book = new Book();

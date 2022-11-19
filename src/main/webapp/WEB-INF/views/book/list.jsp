@@ -11,11 +11,13 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="${R}res/common.js"></script>
     <script src="${R}res/book.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" type="text/css" href="${R}res/common.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="${R}res/table.css" /> -->
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/book.css" />
-    <!--   <link rel="stylesheet" type="text/css" href="${R}res/admin.css" /> -->
   </head>
   <body>
     <div class="top">
@@ -43,7 +45,6 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
       <form:form method="get" modelAttribute="pagination">
         <form:hidden path="pg" value="1" />
         <form:hidden path="sz" />
-        <span>분류:</span>
         <form:select path="srchTarget" class="form-control">
           <form:option value="total">통합검색</form:option>
           <form:option value="title">제목</form:option>
@@ -51,7 +52,9 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
           <form:option value="publisher">발행자</form:option>
         </form:select>
         <form:input type="text" path="keyword" placeholder="검색조건" />
-        <button type="submit" class="search_btn">검색</button>
+        <button type="submit" class="search_btn">
+          <span class="material-symbols-outlined"> search </span>
+        </button>
       </form:form>
 
       <section>
@@ -73,7 +76,8 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
                 <li class="bookInfo"><span>발행자</span>${ book.publisher }</li>
                 <li class="bookInfo"><span>ISBN</span>${ book.isbn }</li>
                 <li class="bookInfo"><span>청구기호</span>${ book.callNum }</li>
-                <li class="bookInfo"><span>분류</span> 
+                <li class="bookInfo">
+                  <span>분류</span>
                   ${ book.category.id }${ book.category.name }
                 </li>
                 <li class="bookInfo state">${ book.state.state }</li>
@@ -82,7 +86,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
           </div>
         </c:forEach>
       </section>
-      
+
       <my:pagination
         pageSize="${ pagination.sz }"
         recordCount="${ pagination.recordCount }"

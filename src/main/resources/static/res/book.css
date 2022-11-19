@@ -1,0 +1,151 @@
+.contents {
+  width: 40%;
+  display: inline-flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 50px 15px;
+  /* background: #c68484; */
+  max-width: 1200px;
+  max-width: 50%;
+  min-height: 300px;
+  padding: 0;
+  /* border: 5px solid rgb(70, 16, 73); */
+  border-top: 5px solid rgb(218, 218, 218);
+  border-bottom: 5px solid rgb(218, 218, 218);
+  vertical-align: middle;
+}
+
+.contentsM {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 100px auto;
+  border-top: 5px solid rgb(218, 218, 218);
+  border-bottom: 5px solid rgb(218, 218, 218);
+  /* background: #c68484; */
+  max-width: 1200px;
+}
+
+.bookImgContent {
+  /* background-color: rgb(137, 174, 36); */
+  display: inline-block;
+}
+
+.bookInfoContent {
+  display: inline-block;
+  min-width: calc(100%-200px);
+  /* background-color: rgb(218, 112, 45); */
+  margin: 10px 0;
+}
+
+.bookImg {
+  display: inline-block;
+  max-width: 200px;
+  height: 320px;
+  padding: 10px;
+}
+
+.bookTitle {
+  text-align: left;
+  font-size: 2em;
+  /* background-color: darkslateblue; */
+}
+
+.bookInfo {
+  text-align: left;
+  list-style: none;
+  font-size: 1em;
+  width: 100%;
+  margin: 5px;
+  /* background-color: rgb(167, 34, 167); */
+}
+
+.bookInfo > span {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.state {
+  color: rgb(241, 20, 20);
+  font-weight: 600;
+}
+
+select,
+input,
+.search_btn {
+  font-size: 1em;
+}
+
+select {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin-top: 10px;
+}
+input {
+  height: 30px;
+  width: 50%;
+  border: none;
+  outline: 0;
+}
+
+form {
+  border: 2px solid darkcyan;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search_btn {
+  width: 50px;
+  height: 30px;
+  padding: 10px;
+  box-shadow: none;
+  vertical-align: middle;
+  border: none;
+  outline: 0;
+  background: transparent;
+}
+
+/* ICON */
+.search_btn > span {
+  font-size: 40px;
+  color: darkcyan;
+  margin-top: -15px;
+  /* display: block; */
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 200, "opsz" 48;
+}
+
+/* PAGINATION */
+.pagination {
+  display: inline;
+  border-collapse: collapse;
+  margin-top: 1em;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+}
+.pagination td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.pagination .active {
+  background-color: rgb(81, 119, 186);
+}
+.pagination a {
+  text-decoration: none;
+  color: rgb(46, 60, 94);
+  display: inline-block;
+  width: 25px;
+  padding: 6px;
+}
+.pagination .active a {
+  color: white;
+}

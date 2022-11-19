@@ -135,9 +135,12 @@ button > p {
   margin: 10px;
 }
 
-.material-symbols-outlined {
+.btn span {
   font-size: 80px;
   color: #2a6bc0;
   display: block;
+}
+
+.material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 200, "opsz" 48;
 }

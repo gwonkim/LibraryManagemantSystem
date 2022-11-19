@@ -112,6 +112,14 @@ public class AdminController {
   }
 
   // BOOK
+  @RequestMapping("book/list")
+	public String bookList(Model model, Pagination pagination) {
+		List<Book> books = bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
+		model.addAttribute("books", books);
+
+		return "admin/book/list";
+	}
+
   @GetMapping("book/register")
   public String bookRegister(Model model) {
     Book book = new Book();
@@ -126,7 +134,7 @@ public class AdminController {
   @PostMapping("book/register")
   public String bookRegister(Model model, Book book, Pagination pagination) {
     bookRepository.save(book);
-    pagination.setCi(0);
+    // pagination.setCi(0);
     int lastPage = (int) Math.ceil(
         (double) bookRepository.count() / pagination.getSz());
     pagination.setPg(lastPage);

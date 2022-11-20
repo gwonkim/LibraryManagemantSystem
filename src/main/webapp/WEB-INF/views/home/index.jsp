@@ -72,9 +72,9 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
     <main>
       <section class="slide">
-        <div><img src="image/banner1.png" class="slide_img" /></div>
-        <div><img src="image/banner2.png" class="slide_img" /></div>
-        <div><img src="image/banner3.png" class="slide_img" /></div>
+        <div><img src="${R}image/banner1.png" class="slide_img" /></div>
+        <div><img src="${R}image/banner2.png" class="slide_img" /></div>
+        <div><img src="${R}image/banner3.png" class="slide_img" /></div>
       </section>
 
       <section class="btn">

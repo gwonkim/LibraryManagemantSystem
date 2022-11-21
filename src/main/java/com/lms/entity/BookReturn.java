@@ -14,21 +14,21 @@ import lombok.Data;
 @Data
 @Entity
 public class BookReturn {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	Date borrowDate;
-	Date returnDate;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    Date borrowDate;
+    Date returnDate;
+
     @ManyToOne
     @JoinColumn(name = "bookId")
     Book book;
-    
+
     @ManyToOne
     @JoinColumn(name = "userId")
     User user;
-    
-   @ManyToOne
-   @JoinColumn(name = "stateId")
-   State state;
+
+    @ManyToOne
+    @JoinColumn(name = "stateId")
+    State state;
 }

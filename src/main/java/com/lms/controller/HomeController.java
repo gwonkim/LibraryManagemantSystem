@@ -26,7 +26,6 @@ public class HomeController {
 
     @RequestMapping("login")
     public String login(HttpServletRequest request) {
-        System.out.println("REQUEST : " + request);
         if (request.isUserInRole("ROLE_ADMIN") || request.isUserInRole("ROLE_HONOR")
                 || request.isUserInRole("ROLE_USER")) {
             return "redirect:";

@@ -88,25 +88,4 @@ public class UserService {
 		user.setBorrowId(userRegistration.getBorrowId());
 		userRepository.save(user);
 	}
-
-//	public void adminEdit(UserRegistration userRegistration) {
-//		User user = new User();
-//		user.setUserId(userRegistration.getUserId());
-//		user.setPassword(passwordEncoder.encode(userRegistration.getPassword1()));
-//		user.setName(userRegistration.getName());
-//		user.setEmail(userRegistration.getEmail());
-//		user.setEnabled(true);
-//		user.setSex(userRegistration.getSex());
-//		user.setPhone(userRegistration.getPhone());
-//		String borrowId;
-//		if (userRegistration.getDepartment().getId() > 0) {
-//			borrowId = user.borrowCode(userRegistration.getDepartment().getId(), userRepository.findAll().size());
-//			user.setDepartment(userRegistration.getDepartment());
-//		} else {
-//			borrowId = user.borrowCode(2, userRepository.findAll().size());
-//			user.setDepartment(departmentRepository.findById(2));
-//		}
-//		user.setBorrowId(borrowId);
-//		userRepository.save(user);
-//	}
 }

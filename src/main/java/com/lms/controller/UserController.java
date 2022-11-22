@@ -24,6 +24,7 @@ import com.lms.entity.Department;
 import com.lms.entity.RequestBook;
 import com.lms.entity.State;
 import com.lms.entity.User;
+import com.lms.model.RequestBookRegistration;
 import com.lms.model.UserRegistration;
 import com.lms.repository.BookBorrowRepository;
 import com.lms.repository.BookReturnRepository;
@@ -31,6 +32,7 @@ import com.lms.repository.DepartmentRepository;
 import com.lms.repository.StateRepository;
 import com.lms.repository.UserRepository;
 import com.lms.repository.RequestBookRepository;
+import com.lms.service.RequestBookService;
 import com.lms.service.UserService;
 
 @Controller
@@ -45,6 +47,8 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	@Autowired
+	RequestBookService requestBookService;
+	@Autowired
 	RequestBookRepository requestBookRepository;
 	@Autowired
 	BookReturnRepository bookReturnRepository;
@@ -53,13 +57,15 @@ public class UserController {
 
 	@RequestMapping("index")
 	public String index(Model model, Authentication authentication) {
-        String userId = authentication.getName();
+		String userId = authentication.getName();
 		User user = userRepository.findByUserId(userId);
+		List<RequestBook> requestBooks = requestBookRepository.findByUserId(user.getId());
 		List<BookReturn> bookReturns = bookReturnRepository.findByUserId(user.getId());
 		List<BookBorrow> bookBorrows = bookBorrowRepository.findByUserId(user.getId());
+		model.addAttribute("requestBooks", requestBooks);
 		model.addAttribute("bookReturns", bookReturns);
 		model.addAttribute("bookBorrows", bookBorrows);
-	  
+
 		return "user/index";
 	}
 
@@ -70,51 +76,71 @@ public class UserController {
 		return "redirect:/user/index";
 	}
 
-	// @Secured("ROLE_ADMIN")
-	// @RequestMapping("admin_only")
-	// public String admin_only(Model model) {
-	// 	return "user/admin_only";
-	// }
-
 	// 개인 정보 수정
 	@GetMapping("edit")
 	public String userEdit(Model model, @RequestParam("id") int id) {
 		User user = userRepository.findById(id).get();
 		List<Department> departments = departmentRepository.findAll();
-		model.addAttribute("userRegistration", new UserRegistration(user));
+		model.addAttribute("userRegistration", user);
 		model.addAttribute("departments", departments);
 		return "user/edit";
 	}
 
+	// @GetMapping("user/edit")
+	// public String userEdit(Model model, @RequestParam("id") int id) {
+	// User user = userRepository.findById(id).get();
+	// List<Department> departments = departmentRepository.findAll();
+	// model.addAttribute("userRegistration", user);
+	// model.addAttribute("departments", departments);
+	// return "admin/user/edit";
+	// }
+
 	@PostMapping("edit")
 	public String userEdit(Model model, @Valid UserRegistration userRegistration, BindingResult bindingResult) {
 		if (userService.hasErrors(userRegistration, bindingResult)) {
-			// System.out.println("사용자의 회원 수정 : bindingResult" + bindingResult);
 			return "user/edit";
 		}
 		userService.edit(userRegistration);
-		return "redirect:list";
+		return "redirect:index";
 	}
 
 	// 희망도서신청
 	@GetMapping("request")
 	public String userRequest(Model model) {
-		List<State> staties = stateRepository.findAll();
-		model.addAttribute("book", new RequestBook());
-		model.addAttribute("staties", staties);
+		model.addAttribute("requestBookRegistration", new RequestBookRegistration());
 		return "user/request";
 	}
 
 	@PostMapping("request")
-	public String userRequest(Model model, RequestBook book) {
-		// List<State> staties = stateRepository.findAll();
-		if (book == null) {
-			return "redirect:";
+	public String userRequest(Model model, Authentication auth, @Valid RequestBookRegistration requestBookRegistration, BindingResult bindingResult) {
+		if (requestBookService.hasErrors(requestBookRegistration, bindingResult)) {
+			return "user/request";
 		}
-		// model.addAttribute("book", new RequestBook());
-		requestBookRepository.save(book);
-		// model.addAttribute("staties", staties);
+		User user = userRepository.findByUserId(auth.getName());
+		requestBookRegistration.setUser(user);
+		requestBookRegistration.setState(stateRepository.findById(6));
+		requestBookService.save(requestBookRegistration);
+		return "redirect:index";
+	}
+
+	// 희망도서수정
+	@GetMapping("requestEdit")
+	public String requestEdit(Model model, @RequestParam("id") int id) {
+		RequestBook requestBook = requestBookRepository.findById(id);
+		RequestBookRegistration requestBookRegistration = new RequestBookRegistration(requestBook);
+		model.addAttribute("requestBookRegistration", requestBookRegistration);
 		return "user/request";
 	}
 
+	@PostMapping("requestEdit")
+	public String requestEdit(Model model, Authentication auth, @Valid RequestBookRegistration requestBookRegistration, BindingResult bindingResult) {
+		if (requestBookService.hasErrors(requestBookRegistration, bindingResult)) {
+			return "user/request";
+		}
+		User user = userRepository.findByUserId(auth.getName());
+		requestBookRegistration.setUser(user);
+		requestBookRegistration.setState(stateRepository.findById(6));
+		requestBookService.edit(requestBookRegistration);
+		return "redirect:index";
+	}
 }

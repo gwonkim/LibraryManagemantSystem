@@ -112,13 +112,14 @@ main {
   text-align: center;
 }
 
-.btn {
+.btn_link {
   margin: 50px 0;
 }
 
-button {
+.btn_link > button {
   background-color: rgb(251, 251, 251);
   width: 22%;
+  min-width: 200px;
   padding: 15px;
   margin: 10px;
   margin-bottom: 10px;
@@ -135,7 +136,7 @@ button > p {
   margin: 10px;
 }
 
-.btn span {
+.btn_link span {
   font-size: 80px;
   color: #2a6bc0;
   display: block;

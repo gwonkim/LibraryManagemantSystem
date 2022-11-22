@@ -77,7 +77,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
         <div><img src="${R}image/banner3.png" class="slide_img" /></div>
       </section>
 
-      <section class="btn">
+      <section class="btn_link">
         <button onclick="location.href='/book/list'">
           <span class="material-symbols-outlined"> search </span>
           <p>자료검색</p>
@@ -95,6 +95,11 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
           <p>안내정보</p>
         </button>
       </section>
+
+      <br />
+      <br />
+      <br />
+
       <div class="round">
         <h1>신착도서</h1>
         <a class="top_link"></a>

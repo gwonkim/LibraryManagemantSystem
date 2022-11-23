@@ -126,8 +126,8 @@ prefix="sec"%>
                       <tr>
                         <th>ISBN</th>
                         <th>자료명</th>
-                        <th>대출 날짜</th>
-                        <th>반납 날짜</th>
+                        <th>대출일</th>
+                        <th>반납예정일</th>
                         <th>사용자 ID</th>
                         <th>사용자 이름</th>
                       </tr>

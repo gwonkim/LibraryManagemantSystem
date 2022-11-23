@@ -5,6 +5,7 @@ import com.lms.entity.BookBorrow;
 import com.lms.entity.BookReturn;
 import com.lms.entity.Category;
 import com.lms.entity.Department;
+import com.lms.entity.RequestBook;
 import com.lms.entity.State;
 import com.lms.entity.User;
 import com.lms.model.Pagination;
@@ -14,12 +15,15 @@ import com.lms.repository.BookRepository;
 import com.lms.repository.BookReturnRepository;
 import com.lms.repository.CategoryRepository;
 import com.lms.repository.DepartmentRepository;
+import com.lms.repository.RequestBookRepository;
 import com.lms.repository.StateRepository;
 import com.lms.repository.UserRepository;
 import com.lms.service.UserService;
+import com.lms.service.RequestBookService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,13 +55,23 @@ public class AdminController {
   CategoryRepository categoryRepository;
 
   @Autowired
+  RequestBookRepository requestBookRepository;
+
+  @Autowired
   StateRepository stateRepository;
 
   @Autowired
   UserService userService;
 
-  @RequestMapping("index")
+  @Autowired
+  RequestBookService requestBookService;
+
+  @RequestMapping({ "index", "/" })
   public String index(Model model) {
+    List<RequestBook> requesbook1 = requestBookRepository.findByStateId(6);
+    List<RequestBook> requesbook2 = requestBookRepository.findByStateId(7);
+    model.addAttribute("requesbook1", requesbook1);
+    model.addAttribute("requesbook2", requesbook2);
     return "admin/index";
   }
 
@@ -113,12 +127,12 @@ public class AdminController {
 
   // BOOK
   @RequestMapping("book/list")
-	public String bookList(Model model, Pagination pagination) {
-		List<Book> books = bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
-		model.addAttribute("books", books);
-
-		return "admin/book/list";
-	}
+  public String bookList(Model model, Pagination pagination) {
+    List<Book> books = bookRepository
+        .findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
+    model.addAttribute("books", books);
+    return "admin/book/list";
+  }
 
   @GetMapping("book/register")
   public String bookRegister(Model model) {
@@ -134,9 +148,7 @@ public class AdminController {
   @PostMapping("book/register")
   public String bookRegister(Model model, Book book, Pagination pagination) {
     bookRepository.save(book);
-    // pagination.setCi(0);
-    int lastPage = (int) Math.ceil(
-        (double) bookRepository.count() / pagination.getSz());
+    int lastPage = (int) Math.ceil((double) bookRepository.count() / pagination.getSz());
     pagination.setPg(lastPage);
     return "redirect:list?" + pagination.getQueryString();
   }
@@ -167,7 +179,6 @@ public class AdminController {
     return "redirect:list?" + pagination.getQueryString();
   }
 
-  // BOOK 대출반납
   @RequestMapping("book/state")
   public String returnList(Model model) {
     List<BookReturn> bookReturns = bookReturnRepository.findAll();
@@ -175,6 +186,19 @@ public class AdminController {
     model.addAttribute("bookReturns", bookReturns);
     model.addAttribute("bookBorrows", bookBorrows);
     return "admin/book/state";
+  }
+
+  @GetMapping("book/request")
+  public String requestEdit(Model model, @RequestParam("id") int id) {
+    model.addAttribute("requestBook", requestBookRepository.findById(id));
+    model.addAttribute("staties", stateRepository.findAll());
+    return "admin/book/request";
+  }
+
+  @PostMapping("book/request")
+  public String requestEdit(Model model, Authentication auth, RequestBook requestBook) {
+    requestBookService.adminEdit(requestBook);
+    return "redirect:/admin/";
   }
 
   // Department

@@ -12,6 +12,7 @@ import com.lms.model.RequestBookRegistration;
 import com.lms.repository.UserRepository;
 import com.lms.repository.DepartmentRepository;
 import com.lms.repository.RequestBookRepository;
+import com.lms.repository.StateRepository;
 
 @Service
 public class RequestBookService {
@@ -21,6 +22,8 @@ public class RequestBookService {
 	DepartmentRepository departmentRepository;
 	@Autowired
 	RequestBookRepository requestBookRepository;
+	@Autowired
+	StateRepository stateRepository;
 
 	public List<RequestBook> findAll() {
 		return requestBookRepository.findAll();
@@ -59,5 +62,19 @@ public class RequestBookService {
 		requestBook.setState(rBRegistration.getState());
 		requestBook.setDate(LocalDateTime.now());
 		requestBookRepository.save(requestBook);
+	}
+
+	public void adminEdit(RequestBook requestBook) {
+		RequestBook newRBook = new RequestBook();
+		newRBook.setId(requestBook.getId());
+		newRBook.setTitle(requestBook.getTitle());
+		newRBook.setAuthor(requestBook.getAuthor());
+		newRBook.setPublisher(requestBook.getPublisher());
+		newRBook.setIsbn(requestBook.getIsbn());
+		newRBook.setEtc(requestBook.getEtc());
+		newRBook.setUser(userRepository.findByUserId(requestBook.getUser().getUserId()));
+		newRBook.setState(stateRepository.findById(requestBook.getState().getId()));
+		newRBook.setDate(requestBook.getDate());
+		requestBookRepository.save(newRBook);
 	}
 }

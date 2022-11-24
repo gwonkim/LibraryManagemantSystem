@@ -24,12 +24,10 @@ body {
   max-width: 1200px;
   text-align: center;
   vertical-align: middle;
- /*  background: #8080c0; */
   height: 100vw;
 }
 
 .left_contents {
-  /* background-color: cornflowerblue; */
   background-color: #383636;
   width: 25%;
   color: #fff;
@@ -37,7 +35,6 @@ body {
 
 .right_contents {
   width: 75%;
-  /* background-color: darkseagreen; */
   margin: 10px 0;
 }
 
@@ -47,7 +44,6 @@ body {
 }
 
 .info {
-  
   text-align: left;
   padding: 30px;
   margin: 10px 0;
@@ -68,8 +64,8 @@ body {
 
 .info_text {
   color: #aeaeae;
-  display: inline;
   margin-right: 13px;
+  margin-bottom: 5px;
 }
 
 .menu {
@@ -103,6 +99,20 @@ body {
   font-variation-settings: "FILL" 0, "wght" 500, "GRAD" -25, "opsz" 48;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" -25, "opsz" 48;
+.setting {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.setting_text {
+  font-size: 18px;
+}
+.setting_icon {
+  font-size: 15px;
+}
+
+.setting:visited,
+.setting:active,
+.setting > span {
+  color: #fff;
 }

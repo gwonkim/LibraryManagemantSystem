@@ -10,6 +10,7 @@ import com.lms.entity.State;
 import com.lms.entity.User;
 import com.lms.model.Pagination;
 import com.lms.model.UserRegistration;
+
 import com.lms.repository.BookBorrowRepository;
 import com.lms.repository.BookRepository;
 import com.lms.repository.BookReturnRepository;
@@ -18,10 +19,13 @@ import com.lms.repository.DepartmentRepository;
 import com.lms.repository.RequestBookRepository;
 import com.lms.repository.StateRepository;
 import com.lms.repository.UserRepository;
+
 import com.lms.service.UserService;
 import com.lms.service.RequestBookService;
+
 import java.util.List;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -61,10 +65,10 @@ public class AdminController {
   StateRepository stateRepository;
 
   @Autowired
-  UserService userService;
+  RequestBookService requestBookService;
 
   @Autowired
-  RequestBookService requestBookService;
+  UserService userService;
 
   @RequestMapping({ "index", "/" })
   public String index(Model model) {
@@ -105,7 +109,7 @@ public class AdminController {
 
   @GetMapping("user/edit")
   public String userEdit(Model model, @RequestParam("id") int id) {
-    User user = userRepository.findById(id).get();
+    User user = userRepository.findById(id);
     List<Department> departments = departmentRepository.findAll();
     model.addAttribute("userRegistration", user);
     model.addAttribute("departments", departments);

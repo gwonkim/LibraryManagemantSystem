@@ -28,11 +28,8 @@ prefix="sec"%>
     ></script>
     <script src="${R}res/slide.js"></script>
     <script src="${R}res/contents.js"></script>
-    <script src="${R}res/calendar.js"></script>
-    <link rel="stylesheet" type="text/css" href="${R}res/calendar.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/tab.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/admin.css" />
-    <link rel="stylesheet" type="text/css" href="${R}res/slide.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
   </head>
@@ -88,9 +85,11 @@ prefix="sec"%>
               <p class="info_text">이메일</p>
               <sec:authentication property="principal.email" />
             </div>
-            <div class="setting">
-              <span class="material-symbols-outlined"> settings </span>
-              설정
+            <div>
+              <a href="${R}user/edit?userId=${userId}" class="setting">
+                <span class="material-symbols-outlined setting_icon"> settings </span>
+                <span class="setting_text">설정</span>
+              </a>
             </div>
           </div>
         </div>
@@ -213,7 +212,12 @@ prefix="sec"%>
                           <td>${ request.state.state }</td>
                           <td>${ request.etc }</td>
                           <c:if test="${ request.state.id == 6 }">
-                            <td style="cursor: pointer;" onclick="location.href='${R}user/requestEdit?id=${ request.id }'">수정</td>
+                            <td
+                              style="cursor: pointer"
+                              onclick="location.href='${R}user/requestEdit?id=${ request.id }'"
+                            >
+                              수정
+                            </td>
                           </c:if>
                         </tr>
                       </c:forEach>

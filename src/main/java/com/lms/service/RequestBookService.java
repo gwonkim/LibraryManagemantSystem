@@ -21,14 +21,14 @@ public class RequestBookService {
 	@Autowired
 	DepartmentRepository departmentRepository;
 	@Autowired
-	RequestBookRepository requestBookRepository;
-	@Autowired
 	StateRepository stateRepository;
+	@Autowired
+	RequestBookRepository requestBookRepository;
 
 	public List<RequestBook> findAll() {
 		return requestBookRepository.findAll();
 	}
-
+	
 	public boolean hasErrors(RequestBookRegistration rBRegistration, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) return true;
 		return false;

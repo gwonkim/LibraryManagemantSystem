@@ -21,6 +21,7 @@ public class Book {
     String publisher;
     long isbn;
     String callNum;
+    boolean newBook;
     
     @ManyToOne
     @JoinColumn(name = "stateId")

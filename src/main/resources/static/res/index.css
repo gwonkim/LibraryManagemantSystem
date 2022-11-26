@@ -113,7 +113,7 @@ main {
 }
 
 .btn_link {
-  margin: 50px 0;
+  margin: 80px 0;
 }
 
 .btn_link > button {
@@ -145,3 +145,5 @@ button > p {
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 200, "opsz" 48;
 }
+
+

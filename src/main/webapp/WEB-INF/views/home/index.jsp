@@ -14,6 +14,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
       src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     <script src="${R}res/common.js"></script>
+    <script src="${R}res/newBooks.js"></script>
     <script src="${R}res/slide.js"></script>
     <link
       rel="stylesheet"
@@ -26,6 +27,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
     />
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/slide.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/newBook.css" />
   </head>
 
   <body>
@@ -96,15 +98,45 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
         </button>
       </section>
 
-      <br />
-      <br />
-      <br />
-
-      <div class="round">
-        <h1>신착도서</h1>
-        <a class="top_link"></a>
-      </div>
-      <div class="banner_box"></div>
+      <section class="newBook_Slider">
+        <div class="slides">
+          <div class="active">
+            <c:forEach var="book" items="${ newBooks }" varStatus="status">
+              <c:if test="${ status.index  < 4}">
+                <div class="newbook">
+                  <img
+                    class="newBook_Img"
+                    src="${R}image/book/${book.id}.jpg"
+                    alt="${book.title}의 이미지"
+                  />
+                  <h3 class="newBook_Title">${ book.title }</h3>
+                  <p>${ book.author }</p>
+                </div>
+              </c:if>
+            </c:forEach>
+          </div>
+          <div>
+            <c:forEach var="book" items="${ newBooks }" varStatus="status">
+              <c:if test="${ status.index  > 3 && status.index < 8}">
+                <div class="newbook">
+                  <img
+                    class="newBook_Img"
+                    src="${R}image/book/${book.id}.jpg"
+                    alt="${book.title}의 이미지"
+                  />
+                  <h3 class="newBook_Title">${ book.title }</h3>
+                  <p>${ book.author }</p>
+                </div>
+              </c:if>
+            </c:forEach>
+          </div>
+        </div>
+        <div class="newBook_btns">
+          <div class="active"></div>
+          <div></div>
+        </div>
+        <h1>신간도서</h1>
+      </section>
     </main>
 
     <footer>

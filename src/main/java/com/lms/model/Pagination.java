@@ -9,6 +9,7 @@ public class Pagination {
     String srchTarget; // 검색 타켓
     String keyword = ""; // 검색 키워드
     int recordCount; // 전체 레코드 수
+    int id; // 도서 세부 정보를 위한 도서 ID
 
     public String getQueryString() {
         return String.format("pg=%d&sz=%d&keyword=%d", pg, sz, keyword);

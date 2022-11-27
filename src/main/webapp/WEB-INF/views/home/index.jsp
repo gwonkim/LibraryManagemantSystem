@@ -99,23 +99,30 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
       </section>
 
       <section class="newBook_Slider">
+        <h1>신간도서</h1>
+        <!-- 버튼 -->
+        <div class="newBook_btns">
+          <div class="active"></div>
+          <div></div>
+        </div>
+        <!-- 슬라이더 -->
         <div class="slides">
           <div class="active">
             <c:forEach var="book" items="${ newBooks }" varStatus="status">
               <c:if test="${ status.index  < 4}">
                 <div class="newbook">
-                  <c:if test="${ book.isImg == true }">
+                  <c:if test="${ book.checkImg }">
                     <img
-                      class="bookImg"
+                      class="newBook_Img"
                       src="${R}image/book/${book.id}.jpg"
                       alt="${book.title}의 이미지"
                     />
                   </c:if>
-                  <c:if test="${ book.isImg == false }">
+                  <c:if test="${ !book.checkImg }">
                     <img
-                      class="bookImg"
+                      class="newBook_Img"
                       src="${R}image/book/0.jpg"
-                      alt="${book.title}의 이미지"
+                      alt="이미지 준비 중입니다."
                     />
                   </c:if>
                   <h3 class="newBook_Title">${ book.title }</h3>
@@ -128,11 +135,20 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
             <c:forEach var="book" items="${ newBooks }" varStatus="status">
               <c:if test="${ status.index  > 3 && status.index < 8}">
                 <div class="newbook">
-                  <img
-                    class="newBook_Img"
-                    src="${R}image/book/${book.id}.jpg"
-                    alt="${book.title}의 이미지"
-                  />
+                  <c:if test="${ book.checkImg }">
+                    <img
+                      class="newBook_Img"
+                      src="${R}image/book/${book.id}.jpg"
+                      alt="${book.title}의 이미지"
+                    />
+                  </c:if>
+                  <c:if test="${ !book.checkImg }">
+                    <img
+                      class="newBook_Img"
+                      src="${R}image/book/0.jpg"
+                      alt="이미지 준비 중입니다."
+                    />
+                  </c:if>
                   <h3 class="newBook_Title">${ book.title }</h3>
                   <p>${ book.author }</p>
                 </div>
@@ -140,11 +156,6 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
             </c:forEach>
           </div>
         </div>
-        <div class="newBook_btns">
-          <div class="active"></div>
-          <div></div>
-        </div>
-        <h1>신간도서</h1>
       </section>
     </main>
 

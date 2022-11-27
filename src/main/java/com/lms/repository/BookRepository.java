@@ -1,20 +1,23 @@
 package com.lms.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import com.lms.model.Pagination;
 import com.lms.entity.Book;
+import com.lms.model.Pagination;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
     Page<Book> findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(String title, String author, String publisher, Pageable pageable);
     Page<Book> findByTitleContainingIgnoreCase(String title, Pageable pageable);
     Page<Book> findByAuthorContainingIgnoreCase(String author, Pageable pageable);
     Page<Book> findByPublisherContainingIgnoreCase(String publisher, Pageable pageable);
+    Page<Book> findByNewBookAndId(boolean i, int id, Pageable pageable);
+    Page<Book> findByNewBook(boolean i, Pageable pageable);
     List<Book> findByNewBook(boolean i);
     
     // 제목 검색
@@ -39,6 +42,22 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
                 .of(pagination.getPg() - 1, pagination.getSz(), Sort.Direction.ASC, "id"));
         pagination.setRecordCount((int) page.getTotalElements());
         return page.getContent();
+    }
+
+    // 신규도서
+    public default List<Book> findByNewBook(Pagination pagination) {
+        Page<Book> page = this.findByNewBook(true, PageRequest
+                .of(pagination.getPg() - 1, pagination.getSz(), Sort.Direction.ASC, "id"));
+        pagination.setRecordCount((int) page.getTotalElements());
+        return page.getContent();
+    }
+
+    // 신규도서 세부 검색
+    public default Book findByNewBookAndId(Pagination pagination) {
+        Page<Book> page = this.findByNewBookAndId(true, pagination.getId(), PageRequest
+                .of(pagination.getPg() - 1, pagination.getSz(), Sort.Direction.ASC, "id"));
+        pagination.setRecordCount((int) page.getTotalElements());
+        return (Book) page.getContent();
     }
 
     // 통합 검색

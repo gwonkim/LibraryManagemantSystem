@@ -39,26 +39,17 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
     </div>
     <main class="container">
       <!-- CONTENTS -->
-      <h1>자료 검색</h1>
+      <h1>신규도서</h1>
       <br />
       <br />
-      <form:form class="bookSearch" method="get" modelAttribute="pagination">
+      <form:form method="get" modelAttribute="pagination">
         <form:hidden path="pg" value="1" />
         <form:hidden path="sz" />
-        <form:select path="srchTarget" class="form-control">
-          <form:option value="total">통합검색</form:option>
-          <form:option value="title">제목</form:option>
-          <form:option value="author">저자</form:option>
-          <form:option value="publisher">발행자</form:option>
-        </form:select>
-        <form:input type="text" path="keyword" placeholder="검색조건" />
-        <button type="submit" class="search_btn">
-          <span class="material-symbols-outlined"> search </span>
-        </button>
+                <form:hidden path="id" value="1" />
       </form:form>
 
       <section>
-        <c:forEach var="book" items="${ books }">
+        <c:forEach var="book" items="${ newBooks }">
           <div class="contents" id="content">
             <!-- 책 이미지 -->
             <div class="bookImgContent">

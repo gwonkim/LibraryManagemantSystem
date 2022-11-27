@@ -85,7 +85,7 @@ input {
   outline: 0;
 }
 
-form {
+.bookSearch {
   border: 2px solid darkcyan;
   border-radius: 30px;
   width: 90%;

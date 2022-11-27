@@ -88,11 +88,11 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
           <span class="material-symbols-outlined"> comment_bank </span>
           <p>희망도서</p>
         </button>
-        <button onclick="location.href='/book/list'">
+        <button onclick="location.href='/book/new'">
           <span class="material-symbols-outlined"> collections_bookmark </span>
           <p>신규도서</p>
         </button>
-        <button onclick="location.href='/book/list'">
+        <button onclick="location.href='/info'">
           <span class="material-symbols-outlined"> lightbulb </span>
           <p>안내정보</p>
         </button>
@@ -104,11 +104,20 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
             <c:forEach var="book" items="${ newBooks }" varStatus="status">
               <c:if test="${ status.index  < 4}">
                 <div class="newbook">
-                  <img
-                    class="newBook_Img"
-                    src="${R}image/book/${book.id}.jpg"
-                    alt="${book.title}의 이미지"
-                  />
+                  <c:if test="${ book.isImg == true }">
+                    <img
+                      class="bookImg"
+                      src="${R}image/book/${book.id}.jpg"
+                      alt="${book.title}의 이미지"
+                    />
+                  </c:if>
+                  <c:if test="${ book.isImg == false }">
+                    <img
+                      class="bookImg"
+                      src="${R}image/book/0.jpg"
+                      alt="${book.title}의 이미지"
+                    />
+                  </c:if>
                   <h3 class="newBook_Title">${ book.title }</h3>
                   <p>${ book.author }</p>
                 </div>

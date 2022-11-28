@@ -58,7 +58,7 @@ public class UserRegistration {
     @Size(min=10, max=11)
     String phone;
     
-    @NotNull
+    // @NotNull
     Department department;
     
     String borrowId;

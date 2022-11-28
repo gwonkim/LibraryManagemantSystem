@@ -45,7 +45,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
       <form:form method="get" modelAttribute="pagination">
         <form:hidden path="pg" value="1" />
         <form:hidden path="sz" />
-                <form:hidden path="id" value="1" />
+        <form:hidden path="id" value="1" />
       </form:form>
 
       <section>
@@ -54,24 +54,30 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
             <!-- 책 이미지 -->
             <div class="bookImgContent">
               <c:if test="${ book.checkImg }">
-                <img
-                  class="bookImg"
-                  src="${R}image/book/${book.id}.jpg"
-                  alt="${book.title}의 이미지"
-                />
+                <a class="book_link" href="/book/detail?title=${book.title}">
+                  <img
+                    class="bookImg"
+                    src="${R}image/book/${book.id}.jpg"
+                    alt="${book.title}의 이미지"
+                  />
+                </a>
               </c:if>
               <c:if test="${ !book.checkImg }">
-                <img
-                  class="bookImg"
-                  src="${R}image/book/0.jpg"
-                  alt="이미지 준비 중입니다."
-                />
+                <a class="book_link" href="/book/detail?title=${book.title}">
+                  <img
+                    class="bookImg"
+                    src="${R}image/book/0.jpg"
+                    alt="이미지 준비 중입니다."
+                  />
+                </a>
               </c:if>
             </div>
             <!-- 책 정보 -->
             <div class="bookInfoContent">
               <ul class="menu">
-                <h2 class="bookTitle">${ book.title }</h2>
+                <a class="book_link" href="/book/detail?title=${book.title}">
+                  <h2 class="bookTitle">${ book.title }</h2>
+                </a>
                 <li class="bookInfo"><span>저자</span>${ book.author }</li>
                 <li class="bookInfo"><span>발행자</span>${ book.publisher }</li>
                 <li class="bookInfo"><span>ISBN</span>${ book.isbn }</li>

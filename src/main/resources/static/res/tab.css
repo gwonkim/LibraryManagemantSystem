@@ -10,6 +10,7 @@ ul {
 }
 
 .tab_menu {
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -23,7 +24,7 @@ ul {
   width: 33.33%;
   float: left;
   text-align: center;
-  background: #f9f9f9;
+  background: #e7e9f3;
   line-height: 40px;
 }
 
@@ -38,6 +39,56 @@ ul {
   display: none;
 }
 
+.tab_menu input:checked ~ label {
+  background: rgb(106, 104, 158);
+  color: #fff;
+  font-weight: 600;
+}
+
+.tab_menu input:checked ~ .tabContents {
+  display: block;
+}
+
+.tab_menu_2 {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.tab_menu_2 ul {
+  position: relative;
+}
+
+.tab_menu_2 ul li {
+  display: inline-block;
+  width: 45.33%;
+  float: left;
+  text-align: center;
+  background: #e7e9f3;
+  line-height: 40px;
+}
+
+.tab_menu_2 label {
+  font-size: 1.5em;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+}
+
+.tab_menu_2 input {
+  display: none;
+}
+
+.tab_menu_2 input:checked ~ label {
+  background: rgb(106, 104, 158);
+  color: #fff;
+  font-weight: 600;
+}
+
+.tab_menu_2 input:checked ~ .tabContents {
+  display: block;
+}
+
 .tabContents {
   display: none;
   width: 100%;
@@ -45,15 +96,7 @@ ul {
   padding: 20px;
   position: absolute;
   left: 0;
-  top: 40px;
+  top: 100px;
   box-sizing: border-box;
-  border: 5px solid #f9f9f9;
-}
-
-.tab_menu input:checked ~ label {
-  background: #ccc;
-}
-
-.tab_menu input:checked ~ .tabContents {
-  display: block;
+  /* border: 5px solid #f9f9f9; */
 }

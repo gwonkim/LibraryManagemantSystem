@@ -87,7 +87,9 @@ prefix="sec"%>
             </div>
             <div>
               <a href="${R}user/edit?userId=${userId}" class="setting">
-                <span class="material-symbols-outlined setting_icon"> settings </span>
+                <span class="material-symbols-outlined setting_icon">
+                  settings
+                </span>
                 <span class="setting_text">설정</span>
               </a>
             </div>

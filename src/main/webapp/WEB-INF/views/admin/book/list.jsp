@@ -48,7 +48,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
       <!-- CONTENTS -->
       <br />
       <br />
-      <form:form method="get" modelAttribute="pagination">
+      <form:form class="bookSearch" method="get" modelAttribute="pagination">
         <form:hidden path="pg" value="1" />
         <form:hidden path="sz" />
         <form:select path="srchTarget" class="form-control">
@@ -68,11 +68,20 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
           <div class="contents" id="content">
             <!-- 책 이미지 -->
             <div class="bookImgContent">
-              <img
-                class="bookImg"
-                src="${R}image/book/${book.id}.jpg"
-                alt="${book.title}의 이미지"
-              />
+              <c:if test="${ book.checkImg }">
+                <img
+                  class="bookImg"
+                  src="${R}image/book/${book.id}.jpg"
+                  alt="${book.title}의 이미지"
+                />
+              </c:if>
+              <c:if test="${ !book.checkImg }">
+                <img
+                  class="bookImg"
+                  src="${R}image/book/0.jpg"
+                  alt="이미지 준비 중입니다."
+                />
+              </c:if>
             </div>
             <!-- 책 정보 -->
             <div class="bookInfoContent">

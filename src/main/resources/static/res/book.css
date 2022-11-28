@@ -105,6 +105,11 @@ input {
   background: transparent;
 }
 
+.book_link {
+  text-decoration: none;
+  color: #000;
+}
+
 /* ICON */
 .search_btn > span {
   font-size: 40px;

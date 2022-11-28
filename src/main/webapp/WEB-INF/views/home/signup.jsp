@@ -44,6 +44,7 @@
 			<p>성별</p>
 			<form:radiobutton path="sex" value="남" label="남자" />
 			<form:radiobutton path="sex" value="여" label="여자" />
+			<br />
 			<form:errors path="sex" class="error" />
 		</div>
 		<div>
@@ -51,6 +52,7 @@
 			<form:input path="phone" placeholder="010-1111-2222" />
 			<form:errors path="phone" class="error" />
 		</div>
+		<form:hidden path="department" />
 		<br />
 		<hr />
 		<div class="submit">

@@ -32,7 +32,8 @@ prefix="form"%>
         <p>자료명</p>
         <form:input path="title" />
       </div>
-
+      <form:hidden path="newBook" value="true" />
+      <form:hidden path="checkImg" value="false" />
       <div>
         <p>저자</p>
         <form:input path="author" />
@@ -52,7 +53,7 @@ prefix="form"%>
       <div>
         <p>상태:</p>
         <form:select
-          path="state.id"
+          path="state"
           itemValue="id"
           itemLabel="state"
           items="${ staties }"
@@ -61,7 +62,7 @@ prefix="form"%>
       <div>
         <p>분류:</p>
         <form:select
-          path="category.id"
+          path="category"
           itemValue="id"
           itemLabel="name"
           items="${ categories }"

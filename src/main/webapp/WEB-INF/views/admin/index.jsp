@@ -88,10 +88,13 @@ prefix="sec"%>
               <p class="info_text">이메일</p>
               <sec:authentication property="principal.email" />
             </div>
-
             <div>
-              <span class="material-symbols-outlined"> settings </span>
-              설정
+              <a href="${R}user/edit?userId=${userId}" class="setting">
+                <span class="material-symbols-outlined setting_icon">
+                  settings
+                </span>
+                <span class="setting_text">설정</span>
+              </a>
             </div>
           </div>
         </div>

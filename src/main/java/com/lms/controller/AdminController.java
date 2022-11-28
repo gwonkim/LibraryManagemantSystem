@@ -23,6 +23,7 @@ import com.lms.repository.UserRepository;
 import com.lms.service.UserService;
 import com.lms.service.RequestBookService;
 
+import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 
@@ -71,9 +72,10 @@ public class AdminController {
   UserService userService;
 
   @RequestMapping({ "index", "/" })
-  public String index(Model model) {
+  public String index(Model model, Authentication authentication) {
     List<RequestBook> requesbook1 = requestBookRepository.findByStateId(6);
     List<RequestBook> requesbook2 = requestBookRepository.findByStateId(7);
+    model.addAttribute("userId", authentication.getName()); // 개인정보수정용
     model.addAttribute("requesbook1", requesbook1);
     model.addAttribute("requesbook2", requesbook2);
     return "admin/index";
@@ -114,7 +116,7 @@ public class AdminController {
     model.addAttribute("userRegistration", user);
     model.addAttribute("departments", departments);
     return "admin/user/edit";
-  }
+  } 
 
   @PostMapping("user/edit")
   public String userEdit(Model model, User userRegistration) {
@@ -150,21 +152,17 @@ public class AdminController {
   }
 
   @PostMapping("book/register")
-  public String bookRegister(Model model, Book book, Pagination pagination) {
+  public String bookRegister(Model model, Book book) {
+    book.setRegiDate(new Date());
     bookRepository.save(book);
-    int lastPage = (int) Math.ceil((double) bookRepository.count() / pagination.getSz());
-    pagination.setPg(lastPage);
-    return "redirect:list?" + pagination.getQueryString();
+    return "redirect:list";
   }
 
   @GetMapping("book/edit")
   public String bookEdit(Model model, @RequestParam("id") int id) {
-    Book book = bookRepository.findById(id).get();
-    List<State> staties = stateRepository.findAll();
-    List<Category> categories = categoryRepository.findAll();
-    model.addAttribute("book", book);
-    model.addAttribute("staties", staties);
-    model.addAttribute("categories", categories);
+    model.addAttribute("book", bookRepository.findById(id));
+    model.addAttribute("staties", stateRepository.findAll());
+    model.addAttribute("categories", categoryRepository.findAll());
     return "admin/book/edit";
   }
 

@@ -19,6 +19,8 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     Page<Book> findByNewBookAndId(boolean i, int id, Pageable pageable);
     Page<Book> findByNewBook(boolean i, Pageable pageable);
     List<Book> findByNewBook(boolean i);
+    Book findById(int i);
+    Book findByTitle(String title);
     
     // 제목 검색
     public default List<Book> findByTitleContainingIgnoreCase(Pagination pagination) {

@@ -27,8 +27,7 @@ public class BookController {
 	@Autowired
 	StateRepository stateRepository;
 	
-	// 도서 검색
-	// 외부인 책 검색 허용
+	// 도서 검색, 외부인 책 검색 허용
 	@RequestMapping("list")
 	public String bookList(Model model, Pagination pagination) {
 		List<Book> books = bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
@@ -45,5 +44,13 @@ public class BookController {
         model.addAttribute("newBooks", newBooks);
 		// model.addAttribute("books", books);
 		return "book/new";
+	}
+
+	// 도서 세부 정보
+	@RequestMapping("detail")
+	public String bookDetail(Model model, Pagination pagination, @RequestParam("title") String title) {
+		Book book = bookRepository.findByTitle(title);
+        model.addAttribute("book", book);
+		return "book/detail";
 	}
 }

@@ -1,6 +1,5 @@
 package com.lms.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,12 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lms.entity.Book;
 import com.lms.model.UserRegistration;
 import com.lms.repository.BookRepository;
+import com.lms.repository.DepartmentRepository;
+import com.lms.repository.StateRepository;
 import com.lms.service.UserService;
 
 @Controller
 public class HomeController {
     @Autowired
     BookRepository bookRepository;
+    @Autowired
+    DepartmentRepository departmentRepository;
     @Autowired
     UserService userService;
 
@@ -45,24 +48,31 @@ public class HomeController {
     @GetMapping("signup")
     public String register(Model model, HttpServletRequest request) {
         if (request.isUserInRole("ROLE_ADMIN") || request.isUserInRole("ROLE_HONOR")
-                || request.isUserInRole("ROLE_USER")) {
+        || request.isUserInRole("ROLE_USER")) {
             return "redirect:";
         }
-        model.addAttribute(new UserRegistration());
+        model.addAttribute("userRegistration", new UserRegistration());
         return "home/signup";
     }
-
+    
     @PostMapping("signup")
     public String register(Model model, @Valid UserRegistration userRegistration, BindingResult bindingResult) {
+        userRegistration.setDepartment(departmentRepository.findById(2));
         if (userService.hasErrors(userRegistration, bindingResult)) {
             return "home/signup";
         }
         userService.save(userRegistration);
-        return "redirect:registerSuccess";
+        return "redirect:";
+    }
+    
+    @RequestMapping("useInfo")
+    public String useInfo(Model model) {
+        model.addAttribute("departments", departmentRepository.findAll());        
+        return "home/useInfo";
     }
 
-    @RequestMapping("registerSuccess")
-    public String registerSurccess() {
-        return "home/registerSuccess";
+    @RequestMapping("intro")
+    public String intro(Model model) {
+        return "home/intro";
     }
 }

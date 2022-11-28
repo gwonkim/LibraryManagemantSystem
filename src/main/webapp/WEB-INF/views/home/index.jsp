@@ -28,6 +28,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/slide.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/newBook.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/book.css" />
   </head>
 
   <body>
@@ -82,29 +83,24 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
       <section class="btn_link">
         <button onclick="location.href='/book/list'">
           <span class="material-symbols-outlined"> search </span>
-          <p>자료검색</p>
+          <p>자료 검색</p>
         </button>
-        <button onclick="location.href='/book/list'">
+        <button onclick="location.href='/useInfo'">
           <span class="material-symbols-outlined"> comment_bank </span>
-          <p>희망도서</p>
+          <p>도서관 이용</p>
         </button>
         <button onclick="location.href='/book/new'">
           <span class="material-symbols-outlined"> collections_bookmark </span>
-          <p>신규도서</p>
+          <p>신규 도서</p>
         </button>
-        <button onclick="location.href='/info'">
+        <button onclick="location.href='/intro'">
           <span class="material-symbols-outlined"> lightbulb </span>
-          <p>안내정보</p>
+          <p>도서관 소개</p>
         </button>
       </section>
 
       <section class="newBook_Slider">
         <h1>신간도서</h1>
-        <!-- 버튼 -->
-        <div class="newBook_btns">
-          <div class="active"></div>
-          <div></div>
-        </div>
         <!-- 슬라이더 -->
         <div class="slides">
           <div class="active">
@@ -125,8 +121,15 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
                       alt="이미지 준비 중입니다."
                     />
                   </c:if>
-                  <h3 class="newBook_Title">${ book.title }</h3>
-                  <p>${ book.author }</p>
+                  <h3
+                    onclick="location.href='/book/detail?title=${book.title}'"
+                    class="newBook_Title"
+                  >
+                    ${ book.title }
+                  </h3>
+                  <a class="book_link" href="/book/detail?title=${book.title}">
+                    <p>${ book.author }</p>
+                  </a>
                 </div>
               </c:if>
             </c:forEach>
@@ -155,6 +158,11 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
               </c:if>
             </c:forEach>
           </div>
+        </div>
+        <!-- 버튼 -->
+        <div class="newBook_btns">
+          <div class="active"></div>
+          <div></div>
         </div>
       </section>
     </main>

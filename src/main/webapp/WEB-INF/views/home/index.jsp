@@ -16,6 +16,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
     <script src="${R}res/common.js"></script>
     <script src="${R}res/newBooks.js"></script>
     <script src="${R}res/slide.js"></script>
+    <script src="${R}res/cal.js"></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -26,6 +27,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/cal.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/slide.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/newBook.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/book.css" />
@@ -47,7 +49,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
       <nav class="nav">
         <span class="nav_left" id="navL">
-          <img src="image/library2.png" class="nav_img" />
+          <img src="image/library.png" class="nav_img" />
         </span>
         <a class="nav_title" href="${R}">지원도서관</a>
         <sec:authorize access="not authenticated">
@@ -163,6 +165,29 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
         <div class="newBook_btns">
           <div class="active"></div>
           <div></div>
+        </div>
+      </section>
+
+      <section class="cal_notice">
+        <!-- 달력 -->
+        <div class="sec_cal">
+          <div class="cal_nav">
+            <a href="javascript:;" class="nav-btn go-prev">prev</a>
+            <div class="year-month"></div>
+            <a href="javascript:;" class="nav-btn go-next">next</a>
+          </div>
+          <div class="cal_wrap">
+            <div class="days">
+              <div class="day">SUN</div>
+              <div class="day">MON</div>
+              <div class="day">TUE</div>
+              <div class="day">WED</div>
+              <div class="day">THU</div>
+              <div class="day">FRI</div>
+              <div class="day">SAT</div>
+            </div>
+            <div class="dates"></div>
+          </div>
         </div>
       </section>
     </main>

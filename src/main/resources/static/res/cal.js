@@ -72,15 +72,29 @@ const calendarInit = () => {
   });
 };
 
-$(calendarInit);
-$(window).resize(function () {
+const changeStyle = () => {
   let cal = $(".cal_notice");
-  let right = $("#navR");
+  let line = $(".v-line");
+  let idxN = $(".idx_notice");
+  let idxNLi = $(".idx_notice li");
 
   if ($(window).width() < 985) {
     console.log("12323");
+    cal.css("display", "block");
     cal.css("margin-top", "500px");
+    line.css("visibility", "hidden");
+    idxN.css("width", "100%");
+    idxNLi.css("width", "80%");
   } else {
+    cal.css("display", "inline-flex");
     cal.css("margin-top", "150px");
+    line.css("visibility", "visible");
+    idxN.css("width", "70%");
+    idxNLi.css("width", "100%");
   }
-});
+}
+
+
+$(calendarInit);
+$(changeStyle);
+$(window).resize(changeStyle);

@@ -27,14 +27,14 @@
 .idx_notice_pin_line,
 .notice_pin_line > .material-symbols-outlined {
   margin-left: 10px;
-  color: brown;
+  color: #d45248;
 }
 
 .idx_notice li,
 .notice li {
   margin-bottom: 15px;
   padding: 7px;
-  background-color: rgb(244, 244, 244);
+  background-color: #85c4cf1c;
   border-radius: 7px;
 }
 
@@ -62,8 +62,6 @@
 
 .idx_hr {
   padding: 0;
-  /* border: rgb(19, 85, 139) 0.1px solid; */
-  /* border: rgb(221, 221, 221) 0.1px solid; */
 }
 
 .v-line {

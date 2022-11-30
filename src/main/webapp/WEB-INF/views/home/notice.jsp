@@ -37,9 +37,10 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
       </nav>
       <nav class="nav">
         <span class="nav_left" id="navL">
-          <img src="${R}image/library.png" class="nav_img" />
+          <a class="nav_title" href="${R}">
+            <img src="image/icon_library.png" class="nav_img" />
+          </a>
         </span>
-        <a class="nav_title" href="${R}">지원도서관</a>
       </nav>
     </header>
 
@@ -80,79 +81,8 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
               </li>
             </c:if>
           </c:forEach>
-          <!--  <c:forEach var="noti" items="${ notice }" varStatus="status">
-              <c:if test="${ !noti.pin}">
-                <li>
-                  <div class="p_notice_line">
-                    <a href="${R}notice/detail?id=${ noti.id }">
-                      <span class="p_notice_title">${ noti.title }</span>
-                      <span class="p_notice_writer"
-                        >${ noti.user.department.name }</span
-                      >
-                      <span class="p_notice_date">${ noti.date }</span>
-                    </a>
-                  </div>
-                </li>
-              </c:if>
-            </c:forEach> -->
-          <!-- <c:forEach var="noti" items="${ notice }" varStatus="status">
-            <c:if test="${ !noti.pin}">
-              <li>
-                <div class="notice_line">
-                  <a href="${R}notice/detail?id=${ noti.id }">
-                    <span class="notice_title">${ noti.title }</span>
-                    <span class="notice_writer"
-                      >${ noti.user.department.name }</span
-                    >
-                    <span class="notice_date">${ noti.date }</span>
-                  </a>
-                </div>
-              </li>
-            </c:if>
-          </c:forEach> -->
         </ul>
       </div>
-
-      <!-- <h1 class="info_title">공지사항</h1>
-      <hr />
-      <div class="notice">
-        <ul>
-          <c:forEach var="noti" items="${ notice }" varStatus="status">
-            <c:if test="${ noti.pin }">
-              <li>
-                <div class="notice_pin_line">
-                  <a href="${R}notice/detail?id=${ noti.id }">
-                    <div class="notice_left">
-                      <span class="material-symbols-outlined"> push_pin </span>
-                      <span class="notice_pin_title">${ noti.title }</span>
-                    </div>
-                    <div class="notice_right">
-                      <span class="notice_writer">${ noti.user.department.name }</span>
-                      <span class="notice_date">${ noti.date }</span>
-                    </div>
-                    </a>
-                </div>
-              </li>
-            </c:if>
-          </c:forEach>
-
-          <c:forEach var="noti" items="${ notice }" varStatus="status">
-            <c:if test="${ !noti.pin}">
-              <li>
-                <div class="notice_line">
-                  <a href="${R}notice/detail?id=${ noti.id }">
-                    <span class="notice_title">${ noti.title }</span>
-                    <span class="notice_writer"
-                      >${ noti.user.department.name }</span
-                    >
-                    <span class="notice_date">${ noti.date }</span>
-                  </a>
-                </div>
-              </li>
-            </c:if>
-          </c:forEach>
-        </ul>
-      </div> -->
     </main>
   </body>
 </html>

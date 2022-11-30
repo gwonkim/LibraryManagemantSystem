@@ -31,6 +31,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
     <link rel="stylesheet" type="text/css" href="${R}res/slide.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/newBook.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/book.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/notice.css" />
   </head>
 
   <body>
@@ -188,6 +189,54 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
             </div>
             <div class="dates"></div>
           </div>
+        </div>
+
+        <div class='v-line'></div>
+
+        <!-- 공지사항 -->
+        <div class="idx_notice">
+          <h2>
+            <a href="${R}notice">공지사항</a>
+          </h2>
+          <ul>
+            <c:forEach var="noti" items="${ notice }" varStatus="status">
+              <c:if test="${ noti.pin }">
+                <li>
+                  <div class="idx_notice_pin_line">
+                    <span class="material-symbols-outlined"> push_pin </span>
+                    <a href="${R}notice/detail?id=${ noti.id }">
+                      <span class="idx_notice_pin_title">${ noti.title }</span>
+                      <span class="idx_notice_writer"
+                        >${ noti.user.department.name }</span
+                      >
+                      <span class="idx_notice_date">${ noti.date }</span>
+                    </a>
+                  </div>
+                </li>
+                <!-- <hr class="idx_hr" /> -->
+              </c:if>
+            </c:forEach>
+
+            <c:forEach var="noti" items="${ notice }" varStatus="status">
+              <c:if test="${ !noti.pin}">
+                <li>
+                  <div class="idx_notice_line">
+                    <a href="${R}notice/detail?id=${ noti.id }">
+                      <span class="idx_notice_title">${ noti.title }</span>
+                      <span class="idx_notice_writer"
+                        >${ noti.user.department.name }</span
+                      >
+                      <span class="idx_notice_date">${ noti.date }</span>
+                    </a>
+                  </div>
+                </li>
+                <c:if test="${ status.index != 6 }">
+                  <!-- <hr class="idx_hr" /> -->
+                </c:if>
+
+              </c:if>
+            </c:forEach>
+          </ul>
         </div>
       </section>
     </main>

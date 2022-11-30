@@ -20,6 +20,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/info.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/footer.css" />
   </head>
   <body>
     <header>
@@ -36,9 +37,10 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
       </nav>
       <nav class="nav">
         <span class="nav_left" id="navL">
-          <img src="${R}image/library2.png" class="nav_img" />
+          <a class="nav_title" href="${R}">
+            <img src="image/icon_library.png" class="nav_img" />
+          </a>
         </span>
-        <a class="nav_title" href="${R}">지원도서관</a>
       </nav>
     </header>
 
@@ -163,5 +165,18 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
         </div>
       </div>
     </main>
+    <footer>
+      <p>지원도서관 | (08359) 서울특별시 구로구 연동로 320 성공회대학교</p>
+      <p>졸업작품 | IT융합자율학부 201914126 김지원</p>
+      <p>Email | jiwonk427@gmail.com</p>
+      <p>
+        프로젝트 Github |
+        <a href="https://github.com/gwonkim/LibrarySystem" target="_blank"
+          >LibrarySystem</a
+        >
+      </p>
+      <br />
+      <p>Copyright © 2022 jiwonKim. All rights reserved.</p>
+    </footer>
   </body>
 </html>

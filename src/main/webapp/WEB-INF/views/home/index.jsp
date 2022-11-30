@@ -32,6 +32,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
     <link rel="stylesheet" type="text/css" href="${R}res/newBook.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/book.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/notice.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/footer.css" />
   </head>
 
   <body>
@@ -50,9 +51,10 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
       <nav class="nav">
         <span class="nav_left" id="navL">
-          <img src="image/library.png" class="nav_img" />
+          <a class="nav_title" href="${R}">
+            <img src="image/icon_library.png" class="nav_img" />
+          </a>
         </span>
-        <a class="nav_title" href="${R}">지원도서관</a>
         <sec:authorize access="not authenticated">
           <span class="nav_right" id="navR">
             <a href="${R}login" class="nav_link">로그인</a> |
@@ -79,8 +81,8 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
     <main>
       <section class="slide">
         <div><img src="${R}image/banner1.png" class="slide_img" /></div>
-        <div><img src="${R}image/banner2.png" class="slide_img" /></div>
-        <div><img src="${R}image/banner3.png" class="slide_img" /></div>
+        <div><img src="${R}image/christmax.png" class="slide_img" /></div>
+        <div><img src="${R}image/contest.png" class="slide_img" /></div>
       </section>
 
       <section class="btn_link">
@@ -213,7 +215,6 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
                     </a>
                   </div>
                 </li>
-                <!-- <hr class="idx_hr" /> -->
               </c:if>
             </c:forEach>
 
@@ -230,19 +231,23 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
                     </a>
                   </div>
                 </li>
-                <c:if test="${ status.index != 6 }">
-                  <!-- <hr class="idx_hr" /> -->
-                </c:if>
-
               </c:if>
             </c:forEach>
           </ul>
         </div>
       </section>
     </main>
-
     <footer>
-      <nav>지원도서관</nav>
+      <p>지원도서관 | (08359) 서울특별시 구로구 연동로 320 성공회대학교</p>
+      <p>졸업작품 | IT융합자율학부 201914126 김지원</p>
+      <p>Email | jiwonk427@gmail.com</p>
+      <p>
+        프로젝트 Github |
+        <a href="https://github.com/gwonkim/LibrarySystem" target="_blank"
+          >LibrarySystem</a
+        >
+      </p>
+      <br />
       <p>Copyright © 2022 jiwonKim. All rights reserved.</p>
     </footer>
   </body>

@@ -13,6 +13,7 @@ ul {
   width: 100%;
   margin: 0 auto;
   position: relative;
+  
 }
 
 .tab_menu ul {
@@ -24,7 +25,7 @@ ul {
   width: 33.33%;
   float: left;
   text-align: center;
-  background: #e7e9f3;
+  border-bottom: 5px #bae3eb solid;
   line-height: 40px;
 }
 
@@ -40,7 +41,8 @@ ul {
 }
 
 .tab_menu input:checked ~ label {
-  background: rgb(106, 104, 158);
+  background-color: #373a6d;
+  border-radius: 10px 100px / 120px;
   color: #fff;
   font-weight: 600;
 }
@@ -64,7 +66,7 @@ ul {
   width: 45.33%;
   float: left;
   text-align: center;
-  background: #e7e9f3;
+  border-bottom: 5px #bae3eb solid;
   line-height: 40px;
 }
 
@@ -80,7 +82,8 @@ ul {
 }
 
 .tab_menu_2 input:checked ~ label {
-  background: rgb(106, 104, 158);
+  background-color: #373a6d;
+  border-radius: 10px 100px / 120px;
   color: #fff;
   font-weight: 600;
 }
@@ -98,5 +101,4 @@ ul {
   left: 0;
   top: 100px;
   box-sizing: border-box;
-  /* border: 5px solid #f9f9f9; */
 }

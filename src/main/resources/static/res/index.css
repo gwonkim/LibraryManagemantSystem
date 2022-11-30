@@ -2,6 +2,7 @@ body {
   top: 0;
   margin: 0;
   width: 100vw;
+  height: 100%;
 }
 
 main {
@@ -39,29 +40,14 @@ main {
 }
 
 .nav {
+  height: 70px;
   margin-bottom: 20px;
 }
 
 .nav_img {
-  width: 50px;
+  margin-top: -2px;
+  width: 100px;
   height: auto;
-  margin-right: 10px;
-}
-
-.nav_title {
-  margin-top: 10px;
-  font-size: 30px;
-  float: left;
-  text-decoration: none;
-  color: #000;
-}
-
-.nav_text {
-  margin-bottom: 30px;
-  font-size: 22px;
-  float: left;
-  text-decoration: none;
-  color: #000;
 }
 
 .nav_left {
@@ -139,7 +125,7 @@ button > p {
 
 .btn_link span {
   font-size: 80px;
-  color: #2a6bc0;
+  color: #494c8f;
   display: block;
 }
 

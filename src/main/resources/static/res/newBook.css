@@ -5,9 +5,11 @@
 }
 
 .newBook_Title {
-  background-color: rgb(179, 196, 211);
+  background-color: #6fb8c7;
   margin-bottom: -10px;
+  color: #FFF;
   pointer-events : auto;
+  padding: 5px;
 }
 
 .newBook_Img {
@@ -44,7 +46,7 @@
 }
 
 .newBook_Slider > .newBook_btns > div.active {
-  background-color: rgb(128, 117, 192);
+  background-color: #6fc2d0;
   padding: 3px;
 }
 

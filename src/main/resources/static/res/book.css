@@ -135,7 +135,9 @@ input {
   text-align: center;
 }
 .pagination .active {
-  background-color: rgb(81, 119, 186);
+  background-color: #373a6d;
+  color: #6fc2d0;
+  font-weight: 600;
 }
 .pagination a {
   text-decoration: none;

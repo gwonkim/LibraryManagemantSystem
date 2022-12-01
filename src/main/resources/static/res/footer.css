@@ -1,6 +1,7 @@
 footer {
   margin: 200px 0 0 0;
   padding: 0;
+  bottom: 0;
   background-color: #373a6d;
   color: #fff;
   padding: 50px;
@@ -20,4 +21,8 @@ footer a {
 footer a:hover {
   background-color: #6fc2d0;
   color: #000;
+}
+
+.state_footer {
+  margin-top: 800px;
 }

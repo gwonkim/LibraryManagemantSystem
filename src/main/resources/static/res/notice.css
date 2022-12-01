@@ -59,6 +59,10 @@
   float: right;
   margin-right: 30px;
 }
+.notice_plus {
+  float: right;
+  margin-right: 100px;
+}
 
 .idx_hr {
   padding: 0;

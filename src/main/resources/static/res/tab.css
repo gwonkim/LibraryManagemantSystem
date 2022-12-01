@@ -42,7 +42,7 @@ ul {
 
 .tab_menu input:checked ~ label {
   background-color: #373a6d;
-  border-radius: 10px 100px / 120px;
+  border-radius: 10px 100px / 120px ;
   color: #fff;
   font-weight: 600;
 }

@@ -77,23 +77,26 @@ const changeStyle = () => {
   let line = $(".v-line");
   let idxN = $(".idx_notice");
   let idxNLi = $(".idx_notice li");
+  let plus = $(".notice_plus");
 
-  if ($(window).width() < 985) {
-    console.log("12323");
+  if ($(window).width() < 999) {
     cal.css("display", "block");
     cal.css("margin-top", "500px");
     line.css("visibility", "hidden");
     idxN.css("width", "100%");
     idxNLi.css("width", "80%");
+    plus.css("margin-right", "100px");
+  } else if ($(window).width() < 1200) {
+    plus.css("margin-right", "50px");
   } else {
     cal.css("display", "inline-flex");
     cal.css("margin-top", "150px");
     line.css("visibility", "visible");
     idxN.css("width", "70%");
     idxNLi.css("width", "100%");
+    plus.css("margin-right", "10px");
   }
-}
-
+};
 
 $(calendarInit);
 $(changeStyle);

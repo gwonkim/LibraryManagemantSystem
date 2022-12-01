@@ -1,0 +1,93 @@
+.detailContents {
+  width: 70%;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0;
+  border-top: 5px solid rgb(218, 218, 218);
+  border-bottom: 5px solid rgb(218, 218, 218);
+  vertical-align: middle;
+  /* background-color: blanchedalmond; */
+}
+
+.bookDetailImg {
+  /* display: inline-block; */
+  max-width: 300px;
+  margin: 0 auto;
+  height: auto;
+  padding: 10px;
+  /* border: 1px solid #000; */
+}
+
+.bookImg_info {
+  /* background-color: rgb(163, 106, 65); */
+  /* display: inline-flex; */
+  width: 100%;
+}
+
+.bookImgContent,
+.bookInfoContent {
+  display: inline-block;
+  /* max-width: 50%; */
+}
+
+.bookImgContent {
+  /* background-color: rgb(255, 255, 255); */
+  margin-right: 50px;
+  width: 50%;
+  text-align: left;
+  float: left;
+  display: flex;
+  /* margin-left: 10vw; */
+  /* width: 45%; */
+}
+
+.bookInfoContent {
+  /* float: right; */
+  /* margin-right: 10vw; */
+  /* background-color: darkseagreen; */
+  margin-top: 50px;
+  margin: 0 10;
+}
+
+.bookStoryContent {
+  margin-top: 200px;
+  text-align: left;
+  display: block;
+  /* background-color: chocolate; */
+}
+
+.bookTitle {
+  text-align: left;
+  font-size: 2em;
+}
+
+.bookInfo {
+  text-align: left;
+  list-style: none;
+  font-size: 1em;
+  width: 100%;
+  margin: 5px;
+}
+
+.bookInfo > span {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.state {
+  color: rgb(241, 20, 20);
+  font-weight: 600;
+}
+
+.book_storys {
+  padding: 40px 0;
+}
+
+.book_link {
+  text-decoration: none;
+  font-weight: 600;
+  color: #373a6d;
+}

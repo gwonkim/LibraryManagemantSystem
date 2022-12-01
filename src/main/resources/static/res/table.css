@@ -14,7 +14,7 @@ table.list td {
 table.list th {
   padding: 6px;
   border: 1px solid #ccc;
-  background-color: #eee;
+  background-color: rgb(245, 245, 245);
 }
 
 a.btn {
@@ -22,8 +22,7 @@ a.btn {
   margin: -20px 0 5px 0;
 }
 
-td:nth-child(1),
-td:nth-child(5) {
+th {
   text-align: center;
 }
 
@@ -55,7 +54,8 @@ table.pagination td {
 }
 
 table.pagination td.active {
-  background-color: #48f;
+  background-color: #373a6d;
+  color: rgb(242, 242, 229);
 }
 
 table.pagination a {

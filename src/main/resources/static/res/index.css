@@ -78,26 +78,6 @@ main {
   text-decoration: none;
 }
 
-.round {
-  height: 400px;
-  padding: auto;
-  padding-top: 20px;
-  width: 25%;
-  background: #8080c0;
-  border-radius: 0% 80px 0% 0%;
-  z-index: 2;
-}
-
-.round > h1 {
-  font-size: 3em;
-  text-align: center;
-}
-
-.round > a {
-  font-size: 2em;
-  text-align: center;
-}
-
 .btn_link {
   width: 100%;
   margin: 80px 0;

@@ -2,6 +2,8 @@ package com.lms.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,31 +28,38 @@ public class BookController {
 	CategoryRepository categoryRepository;
 	@Autowired
 	StateRepository stateRepository;
-	
+
 	// 도서 검색, 외부인 책 검색 허용
 	@RequestMapping("list")
 	public String bookList(Model model, Pagination pagination) {
-		List<Book> books = bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
+		List<Book> books = bookRepository
+				.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
 		model.addAttribute("books", books);
 
 		return "book/list";
 	}
-	
+
 	// 신규도서
 	@RequestMapping("new")
 	public String newBookList(Model model, Pagination pagination) {
-		// List<Book> books = bookRepository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrPublisherContainingIgnoreCase(pagination);
 		List<Book> newBooks = bookRepository.findByNewBook(pagination);
-        model.addAttribute("newBooks", newBooks);
-		// model.addAttribute("books", books);
+		model.addAttribute("newBooks", newBooks);
 		return "book/new";
 	}
 
 	// 도서 세부 정보
 	@RequestMapping("detail")
-	public String bookDetail(Model model, Pagination pagination, @RequestParam("title") String title) {
+	public String bookDetail(Model model, HttpServletRequest request, Pagination pagination, @RequestParam("title") String title) {
 		Book book = bookRepository.findByTitle(title);
-        model.addAttribute("book", book);
+		String bookLink = "book/list";
+		String homeLink = "user/index";
+		if (request.isUserInRole("ROLE_ADMIN")) {
+			bookLink = "admin/book/list";
+			homeLink = "admin/index";
+		}
+		model.addAttribute("homeLink", homeLink);
+		model.addAttribute("bookLink", bookLink);
+		model.addAttribute("book", book);
 		return "book/detail";
 	}
 }

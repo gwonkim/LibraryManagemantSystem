@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lms.entity.BookBorrow;
 import com.lms.entity.BookReturn;
-import com.lms.entity.Department;
 import com.lms.entity.RequestBook;
 import com.lms.entity.User;
 import com.lms.model.PwRegistration;
@@ -85,12 +84,25 @@ public class UserController {
 	}
 
 	@PostMapping("edit")
-	public String userEdit(Model model, @Valid UserRegistration userRegistration, BindingResult bindingResult) {
-		if (userService.hasEditErrors(userRegistration, bindingResult)) {
-			return "user/edit";
+	public String userEdit(Model model, HttpServletRequest request, @Valid UserRegistration userRegistration,
+			BindingResult bindingResult) {
+		if (request.isUserInRole("ROLE_ADMIN")) {
+			if (userService.hasEditErrors(userRegistration, bindingResult)) {
+				return "user/edit";
+			}
+			userService.editUser(userRegistration);
+			return "redirect:/admin/index";
 		}
-		userService.editUser(userRegistration);
-		return "redirect:/user/index";
+
+		if (request.isUserInRole("ROLE_HONOR")
+				|| request.isUserInRole("ROLE_USER")) {
+			if (userService.hasEditErrors(userRegistration, bindingResult)) {
+				return "user/edit";
+			}
+			userService.editUser(userRegistration);
+			return "redirect:/user/index";
+		}
+		return "redirect:index";
 	}
 
 	// 비밀번호 수정
@@ -99,14 +111,18 @@ public class UserController {
 		model.addAttribute("pwRegistration", new PwRegistration(userId));
 		return "user/editPw";
 	}
-	
+
 	@PostMapping("editPw")
-	public String pWEdit(Model model, @Valid PwRegistration pwRegistration, BindingResult bindingResult) {
+	public String pWEdit(Model model, HttpServletRequest request, @Valid PwRegistration pwRegistration,
+			BindingResult bindingResult) {
 		if (userService.hasEditPwErrors(pwRegistration, bindingResult)) {
 			return "user/editPw";
 		}
 		userService.editPw(pwRegistration);
-		return "redirect:/user/";
+		if (request.isUserInRole("ROLE_ADMIN")) {
+			return "redirect:/admin/index";
+		}
+		return "redirect:/user/index";
 	}
 
 	// 희망도서신청
@@ -149,5 +165,11 @@ public class UserController {
 		requestBookRegistration.setState(stateRepository.findById(6));
 		requestBookService.edit(requestBookRegistration);
 		return "redirect:index";
+	}
+
+	@RequestMapping("requestDelete")
+	public String userDelete(Model model, @RequestParam("id") int id) {
+	  requestBookRepository.deleteById(id);
+	  return "redirect:/user/index";
 	}
 }

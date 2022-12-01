@@ -26,6 +26,7 @@ public class Book {
     Date regiDate;
     boolean newBook;
     boolean checkImg;
+    String story;
 
     @ManyToOne
     @JoinColumn(name = "stateId")

@@ -1,6 +1,6 @@
 package com.lms.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +17,8 @@ public class BookBorrow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    Date borrowDate;
-    Date returnDate;
+    LocalDate borrowDate;
+    LocalDate returnDate;
 
     @ManyToOne
     @JoinColumn(name = "bookId")

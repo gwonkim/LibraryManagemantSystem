@@ -172,13 +172,10 @@ public class AdminController {
     return "redirect:list?" + pagination.getQueryString();
   }
 
-  @PostMapping(value = "book/edit", params = "cmd=delete")
-  public String bookDelete(
-      Model model,
-      @RequestParam("id") int id,
-      Pagination pagination) {
+  @RequestMapping("book/delete")
+  public String bookDelete(Model model, @RequestParam("id") int id) {
     bookRepository.deleteById(id);
-    return "redirect:list?" + pagination.getQueryString();
+    return "redirect:/admin/book/list";
   }
 
   @RequestMapping("book/state")

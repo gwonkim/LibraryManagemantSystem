@@ -21,7 +21,6 @@ import com.lms.model.UserRegistration;
 import com.lms.repository.BookRepository;
 import com.lms.repository.DepartmentRepository;
 import com.lms.repository.NoticeRepository;
-import com.lms.repository.StateRepository;
 import com.lms.service.UserService;
 
 @Controller

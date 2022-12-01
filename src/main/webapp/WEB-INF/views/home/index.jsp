@@ -48,11 +48,10 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
           >
         </span>
       </nav>
-
       <nav class="nav">
         <span class="nav_left" id="navL">
           <a class="nav_title" href="${R}">
-            <img src="image/icon_library.png" class="nav_img" />
+            <img src="${R}image/icon_library.png" class="nav_img" />
           </a>
         </span>
         <sec:authorize access="not authenticated">
@@ -61,7 +60,6 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
             <a href="${R}signup" class="nav_link">회원가입</a>
           </span>
         </sec:authorize>
-
         <sec:authorize access="authenticated">
           <span class="nav_right" id="navR">
             <sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -88,7 +86,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
       <section class="btn_link">
         <button onclick="location.href='/book/list'">
           <span class="material-symbols-outlined"> search </span>
-          <p>자료 검색</p>
+          <p>도서 검색</p>
         </button>
         <button onclick="location.href='/useInfo'">
           <span class="material-symbols-outlined"> comment_bank </span>
@@ -193,12 +191,13 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
           </div>
         </div>
 
-        <div class='v-line'></div>
+        <div class="v-line"></div>
 
         <!-- 공지사항 -->
         <div class="idx_notice">
           <h2>
-            <a href="${R}notice">공지사항</a>
+            <a href="${R}notice">공지사항<span class="material-symbols-outlined notice_plus"> add </span></a>
+      
           </h2>
           <ul>
             <c:forEach var="noti" items="${ notice }" varStatus="status">

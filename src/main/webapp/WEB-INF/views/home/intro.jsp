@@ -12,6 +12,11 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
     <script src="${R}res/common.js"></script>
     <script src="${R}res/book.js"></script>
     <script src="${R}res/tab.js"></script>
+    <!-- <script src="${R}res/map.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dr8e6axke4&submodules=geocoder"
+    ></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -49,11 +54,10 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
       <div class="tab_menu">
         <ul>
           <li id="tab1" class="btnCon">
-            <input type="radio" checked name="tab_menu" id="tab_menu1" />
+            <input type="radio" name="tab_menu" id="tab_menu1" />
             <label for="tab_menu1">인사말</label>
             <div class="tabContents">
               <div class="info_text">
-                <img scr=" " />
                 <img src="${R}image/banner1.png" class="info_img" />
                 <p class="info_title">안녕하십니까</p>
                 <p class="info_con1">
@@ -65,7 +69,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
                   지원도서관장 <span>김지원</span>
                 </p>
                 <hr />
-                
+
                 <p class="info_con2">
                   지원의 대표도서관 지원도서관에 오신 것을 환영합니다.
                 </p>
@@ -90,47 +94,61 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
                   지원도서관은 지원시민 여러분의 성장과 발전에 기여하는 존재가
                   되겠습니다. 여러분의 많은 관심과 지원 부탁드립니다.
                 </p>
+              </div>
             </div>
           </li>
           <li id="tab2" class="btnCon">
-            <input type="radio" name="tab_menu" id="tab_menu2" />
+            <input type="radio" checked name="tab_menu" id="tab_menu2" />
             <label for="tab_menu2">찾아오시는 길</label>
-            <div class="tabContents"></div>
+            <div class="tabContents">
+              <div id="map" style="width: 100%; height: 450px"></div>
+              <script>
+                var map = new naver.maps.Map("map", {
+                  center: new naver.maps.LatLng(
+                    37.4874312533318,
+                    126.826108231406
+                  ),
+                  zoom: 17,
+                  minZoom: 6,
+                  zoomControl: true,
+                  zoomControlOptions: {
+                    position: naver.maps.Position.LEFT_BOTTOM,
+                  },
+                });
+
+                var marker = new naver.maps.Marker({
+                  position: new naver.maps.LatLng(
+                    37.4874312533318,
+                    126.826108231406
+                  ),
+                  map: map,
+                });
+              </script>
+              <p class="info_title">
+                <span class="material-symbols-outlined map_icon">
+                  pin_drop </span
+                >주소
+              </p>
+              <p class="info_con1">
+                (08359) 서울특별시 구로구 연동로 320 성공회대학교
+              </p>
+              <p class="info_con2"></p>
+              <p class="info_title">
+                <span class="material-symbols-outlined map_icon">
+                  directions_subway </span
+                >지하철
+              </p>
+              <p class="info_con2">
+                1호선 온수역(성공회대입구역) 1번 출구-도보 10분
+              </p>
+              <p class="info_con2">
+                7호선 온수역(성공회대입구역) 2번 출구-도보 10분
+              </p>
+            </div>
           </li>
           <li id="tab2" class="btnCon">
             <input type="radio" name="tab_menu" id="tab_menu3" />
             <label for="tab_menu3">연혁</label>
-            <div class="tabContents"></div>
-          </li>
-          <li id="tab2" class="btnCon">
-            <input type="radio" name="tab_menu" id="tab_menu4" />
-            <label for="tab_menu4">직원 소개</label>
-            <div class="tabContents">
-              김지원
-
-
-            </div>
-          </li>
-          <li id="tab2" class="btnCon">
-            <input type="radio" name="tab_menu" id="tab_menu5" />
-            <label for="tab_menu5">이용 안내</label>
-            <div class="tabContents">
-
-                <p class="info_title">안녕하십니까</p>
-                <p class="info_con1">
-                  지원도서관장 김지원입니다.
-                  <br />
-                  도서관을 찾아주신 모두를 환영합니다.
-                  <br />
-                  <br />
-                  지원도서관장 <span>김지원</span>
-                </p>
-                <hr />
-            </div>
-          </li>
-          <li id="tab2" class="btnCon">
-            <input type="radio" name="tab_menu" id="tab_menu6" />
-            <label for="tab_menu6">도서관 현황</label>
             <div class="tabContents"></div>
           </li>
         </ul>

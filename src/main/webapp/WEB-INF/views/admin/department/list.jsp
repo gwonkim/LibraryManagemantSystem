@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c"%>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -8,28 +9,40 @@
     <link rel="stylesheet" type="text/css" href="${R}res/common.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/footer.css" />
   </head>
   <body>
-    <div class="top">
-      <span>
-        <a target="_blank" href="https://github.com/gwonkim" class="top_link">깃허브</a>
-        |
-        <a target="_blank" href="https://github.com/gwonkim" class="top_link">유튜브설명영상</a>
-      </span>
-    </div>
-    <div class="nav">
-      <span class="nav_left" id="navL">
-        <img src="${R}image/library2.png" class="nav_img" />
-      </span>
-      <a class="nav_title" href="${R}">지원도서관</a>
-      <sec:authorize access="authenticated">
-        <span class="nav_right" id="navR">
-          <a href="group" class="nav_link">그룹 목록</a>
-          <a href="create" class="nav_link">그룹 추가</a>
+    <header>
+      <nav class="top">
+        <span>
+          <a target="_blank" href="https://github.com/gwonkim" class="top_link"
+            >깃허브</a
+          >
+          |
+          <a target="_blank" href="https://github.com/gwonkim" class="top_link"
+            >유튜브설명영상</a
+          >
         </span>
-      </sec:authorize>
-    </div>
-    <div class="container">
+      </nav>
+      <nav class="nav">
+        <span class="nav_left" id="navL">
+          <a class="nav_title" href="${R}">
+            <img src="${R}image/icon_library.png" class="nav_img" />
+          </a>
+        </span>
+        <span class="nav_right" id="navR">
+          <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <span class="nav_right" id="navR">
+              <a href="group" class="nav_link">그룹 목록</a>
+              <a href="create" class="nav_link">그룹 추가</a>
+              <a href="${R}logout_processing" class="nav_link">로그아웃</a>
+            </span>
+          </sec:authorize>
+        </span>
+      </nav>
+    </header>
+
+    <main class="container">
       <h1>그룹별 사용자 목록</h1>
       <c:forEach var="department" items="${ departments }">
         <h3>${ department.id }-${ department.name }</h3>
@@ -60,6 +73,19 @@
           </tbody>
         </table>
       </c:forEach>
-    </div>
+    </main>
+    <footer>
+      <p>지원도서관 | (08359) 서울특별시 구로구 연동로 320 성공회대학교</p>
+      <p>졸업작품 | IT융합자율학부 201914126 김지원</p>
+      <p>Email | jiwonk427@gmail.com</p>
+      <p>
+        프로젝트 Github |
+        <a href="https://github.com/gwonkim/LibrarySystem" target="_blank"
+          >LibrarySystem</a
+        >
+      </p>
+      <br />
+      <p>Copyright © 2022 jiwonKim. All rights reserved.</p>
+    </footer>
   </body>
 </html>

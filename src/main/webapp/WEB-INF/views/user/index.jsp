@@ -30,6 +30,7 @@ prefix="sec"%>
     <script src="${R}res/contents.js"></script>
     <link rel="stylesheet" type="text/css" href="${R}res/tab.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/admin.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/footer.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/index.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
   </head>
@@ -48,16 +49,10 @@ prefix="sec"%>
       </nav>
       <nav class="nav">
         <span class="nav_left" id="navL">
-          <img src="${R}image/library2.png" class="nav_img" />
+          <a class="nav_title" href="${R}">
+            <img src="${R}image/icon_library.png" class="nav_img" />
+          </a>
         </span>
-        <a class="nav_title" href="${R}">지원도서관</a>
-        <sec:authorize access="not authenticated">
-          <span class="nav_right" id="navR">
-            <a href="${R}login" class="nav_link">로그인</a> |
-            <a href="${R}signup" class="nav_link">회원가입</a>
-          </span>
-        </sec:authorize>
-
         <sec:authorize access="authenticated">
           <span class="nav_right" id="navR">
             <a href="${R}logout_processing" class="nav_link">로그아웃</a>
@@ -126,10 +121,10 @@ prefix="sec"%>
                     <thead>
                       <tr>
                         <th>ISBN</th>
-                        <th>자료명</th>
+                        <th>도서명</th>
                         <th>대출일</th>
                         <th>반납예정일</th>
-                        <th>사용자 ID</th>
+                        <th>대출 ID</th>
                         <th>사용자 이름</th>
                       </tr>
                     </thead>
@@ -161,10 +156,10 @@ prefix="sec"%>
                     <thead>
                       <tr>
                         <th>ISBN</th>
-                        <th>자료명</th>
+                        <th>도서명</th>
                         <th>대출 날짜</th>
                         <th>반납 날짜</th>
-                        <th>사용자 ID</th>
+                        <th>대출 ID</th>
                         <th>사용자 이름</th>
                       </tr>
                     </thead>
@@ -221,6 +216,9 @@ prefix="sec"%>
                               수정
                             </td>
                           </c:if>
+                          <c:if test="${ request.state.id != 6 }">
+                            <td></td>
+                          </c:if>
                         </tr>
                       </c:forEach>
                     </tbody>
@@ -230,17 +228,20 @@ prefix="sec"%>
             </li>
           </ul>
         </div>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </section>
     </main>
 
     <footer>
-      <nav>지원도서관</nav>
+      <p>지원도서관 | (08359) 서울특별시 구로구 연동로 320 성공회대학교</p>
+      <p>졸업작품 | IT융합자율학부 201914126 김지원</p>
+      <p>Email | jiwonk427@gmail.com</p>
+      <p>
+        프로젝트 Github |
+        <a href="https://github.com/gwonkim/LibrarySystem" target="_blank"
+          >LibrarySystem</a
+        >
+      </p>
+      <br />
       <p>Copyright © 2022 jiwonKim. All rights reserved.</p>
     </footer>
   </body>

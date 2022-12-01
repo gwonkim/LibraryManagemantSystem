@@ -26,15 +26,15 @@ prefix="form"%>
           >
         </span>
       </nav>
-
       <nav class="nav">
         <span class="nav_left" id="navL">
           <a class="nav_title" href="${R}">
-            <img src="image/icon_library.png" class="nav_img" />
+            <img src="${R}image/icon_library.png" class="nav_img" />
           </a>
         </span>
       </nav>
     </header>
+
     <form:form method="post" modelAttribute="userRegistration">
       <h1>회원가입</h1>
       <div>

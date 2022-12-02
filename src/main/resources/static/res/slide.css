@@ -3,6 +3,12 @@
   min-width: 500px;
 }
 
+.slide_center {
+  border: 10px #373a6d solid;
+  width: 98%;
+  min-width: 500px;
+}
+
 .slick-dots {
   width: 100%;
   margin-left: -40px;

@@ -78,7 +78,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
     <main>
       <section class="slide">
-        <div><img src="${R}image/banner1.png" class="slide_img" /></div>
+        <div><img src="${R}image/library_1.png" class="slide_center" /></div>
         <div><img src="${R}image/christmax.png" class="slide_img" /></div>
         <div><img src="${R}image/contest.png" class="slide_img" /></div>
       </section>

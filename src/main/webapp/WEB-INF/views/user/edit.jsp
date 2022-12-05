@@ -37,7 +37,7 @@ prefix="form"%>
     </header>
 
     <form:form method="post" modelAttribute="userRegistration">
-      <div class="title">개인정보 수정</div>
+      <div class="title">개인정보수정</div>
       <form:input path="id" hidden="true" />
       <div>
         <p>대출코드</p>
@@ -84,7 +84,7 @@ prefix="form"%>
       </div>
       <div>
         <a href="${R}user/editPw?userId=${userId}" class="link"
-          >비밀번호 수정</a
+          >비밀번호수정</a
         >
         |
         <a href="${R}user/index" class="link">나의 공간</a>

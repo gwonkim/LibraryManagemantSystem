@@ -27,6 +27,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
     <link rel="stylesheet" type="text/css" href="${R}res/info.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/table.css" />
     <link rel="stylesheet" type="text/css" href="${R}res/footer.css" />
+    <link rel="stylesheet" type="text/css" href="${R}res/steps.css" />
   </head>
   <body>
     <header>
@@ -58,7 +59,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
             <label for="tab_menu1">인사말</label>
             <div class="tabContents">
               <div class="info_text">
-                <img src="${R}image/banner1.png" class="info_img" />
+                <img src="${R}image/front.png" class="info_img" />
                 <p class="info_title">안녕하십니까</p>
                 <p class="info_con1">
                   지원도서관장 김지원입니다.
@@ -98,6 +99,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
             </div>
           </li>
           <li id="tab2" class="btnCon">
+            <!-- checked -->
             <input type="radio" checked name="tab_menu" id="tab_menu2" />
             <label for="tab_menu2">찾아오시는 길</label>
             <div class="tabContents">
@@ -146,11 +148,15 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
               </p>
             </div>
           </li>
-          <li id="tab2" class="btnCon">
+          <!-- <li id="tab2" class="btnCon">
             <input type="radio" name="tab_menu" id="tab_menu3" />
             <label for="tab_menu3">연혁</label>
-            <div class="tabContents"></div>
-          </li>
+            <div class="tabContents">
+              <div class="steps"></div>
+              <div class="dot"></div>
+
+            </div>
+          </li> -->
         </ul>
       </div>
     </main>

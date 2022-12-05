@@ -35,7 +35,7 @@ prefix="form"%>
       </nav>
     </header>
     <form:form method="post" modelAttribute="pwRegistration">
-      <div class="title">비밀번호 수정</div>
+      <div class="title">비밀번호수정</div>
       <div>
         <p>ID</p>
         <form:input path="id" readonly="true" />

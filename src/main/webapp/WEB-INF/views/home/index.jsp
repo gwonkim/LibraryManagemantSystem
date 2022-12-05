@@ -78,7 +78,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
     <main>
       <section class="slide">
-        <div><img src="${R}image/library_1.png" class="slide_center" /></div>
+        <div><img src="${R}image/front.png" class="slide_img" /></div>
         <div><img src="${R}image/christmax.png" class="slide_img" /></div>
         <div><img src="${R}image/contest.png" class="slide_img" /></div>
       </section>
@@ -94,7 +94,7 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
         </button>
         <button onclick="location.href='/book/new'">
           <span class="material-symbols-outlined"> collections_bookmark </span>
-          <p>신규 도서</p>
+          <p>신간 도서</p>
         </button>
         <button onclick="location.href='/intro'">
           <span class="material-symbols-outlined"> lightbulb </span>
@@ -207,9 +207,9 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
                     <span class="material-symbols-outlined"> push_pin </span>
                     <a href="${R}notice/detail?id=${ noti.id }">
                       <span class="idx_notice_pin_title">${ noti.title }</span>
-                      <span class="idx_notice_writer"
+                      <!-- <span class="idx_notice_writer"
                         >${ noti.user.department.name }</span
-                      >
+                      > -->
                       <span class="idx_notice_date">${ noti.date }</span>
                     </a>
                   </div>
@@ -223,9 +223,9 @@ prefix="sec" %> <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
                   <div class="idx_notice_line">
                     <a href="${R}notice/detail?id=${ noti.id }">
                       <span class="idx_notice_title">${ noti.title }</span>
-                      <span class="idx_notice_writer"
+                     <!--  <span class="idx_notice_writer"
                         >${ noti.user.department.name }</span
-                      >
+                      > -->
                       <span class="idx_notice_date">${ noti.date }</span>
                     </a>
                   </div>

@@ -44,7 +44,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
 
     <main class="container">
       <!-- CONTENTS -->
-      <h1>신규도서</h1>
+      <h1>신간도서</h1>
       <br />
       <br />
       <form:form method="get" modelAttribute="pagination">

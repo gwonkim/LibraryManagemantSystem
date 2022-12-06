@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name="notice")
 public class Notice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name="category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name="user")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

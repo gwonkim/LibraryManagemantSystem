@@ -27,7 +27,7 @@ prefix="form"%> <%@ taglib tagdir="/WEB-INF/tags" prefix="my"%>
             >깃허브</a
           >
           |
-          <a target="_blank" href="https://github.com/gwonkim" class="top_link"
+          <a target="_blank" href="https://youtu.be/WIbRvyn0lQo" class="top_link"
             >유튜브설명영상</a
           >
         </span>

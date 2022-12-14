@@ -1,15 +1,15 @@
 # Library Managemant System
-### AWS CLOUD BOOT CAMP - PROJECT
-
-> 도서 자료 
-- 도서 목록 보기
-- 자료 등록
-
-> 사용자 자료
-- 전체 목록 보기
-- 그룹별 사용자 목록보기
-- 그룹 목록 보기 및 추가
-
 
 ## DB 설계도
-![db_수정본](https://user-images.githubusercontent.com/62700252/193821656-bff92edd-77d2-49e6-a91b-ce0b53a9f744.png)
+데이터베이스 테이블
+- 사용자
+- 그룹(department)
+- 희망도서
+- 공지사항
+- 도서 반납
+- 도서 대출
+- 도서 카테고리
+- 도서
+- 도서 상태
+
+![DB_다이어그램](https://user-images.githubusercontent.com/62700252/207595072-f358ff04-756f-409c-ad36-8a554cd49236.png)

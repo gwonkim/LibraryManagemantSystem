@@ -1,0 +1,118 @@
+body {
+  top: 0;
+  width: 100vw;
+  height: 100vw;
+}
+
+.contents {
+  display: flex;
+  font-size: 1em;
+  margin: 80px auto;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  max-width: 1200px;
+}
+
+.contentsM {
+  display: inline-block;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 50px auto;
+  width: 100vw;
+  max-width: 1200px;
+  text-align: center;
+  vertical-align: middle;
+  height: 100vw;
+}
+
+.left_contents {
+  background-color: #383636;
+  width: 25%;
+  color: #fff;
+}
+
+.right_contents {
+  width: 75%;
+  margin: 0 0 0 20px;
+}
+
+.mobile {
+  width: 600px;
+  width: 100%;
+}
+
+.info {
+  text-align: left;
+  padding: 30px;
+  margin: 10px 0;
+}
+
+.title {
+  font-size: 2em;
+  margin-right: 15px;
+  min-width: 180px;
+  max-width: 200px;
+}
+
+.userInfo > div {
+  width: 200px;
+  display: block;
+  margin-top: 10px;
+}
+
+.info_text {
+  color: #aeaeae;
+  margin-right: 13px;
+  margin-bottom: 5px;
+}
+
+.menu {
+  padding: 30px;
+  margin: 10px 0;
+  background-color: #383636;
+  list-style-type: none;
+  text-align: left;
+}
+
+.menu_btn {
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.menu_btn:hover {
+  cursor: pointer;
+}
+
+.tab {
+  visibility: visible;
+}
+
+.tab_hidden {
+  visibility: hidden;
+}
+
+/* ICON */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" -25, "opsz" 48;
+}
+
+.setting {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.setting_text {
+  font-size: 18px;
+}
+.setting_icon {
+  font-size: 15px;
+}
+
+.setting:visited,
+.setting:active,
+.setting > span {
+  color: #fff;
+}

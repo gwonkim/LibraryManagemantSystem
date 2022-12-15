@@ -1,0 +1,71 @@
+table.list {
+  margin: 10px auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  min-width: 450px;
+}
+
+table.list td {
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+table.list th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  background-color: rgb(245, 245, 245);
+}
+
+a.btn {
+  float: right;
+  margin: -20px 0 5px 0;
+}
+
+th {
+  text-align: center;
+}
+
+input {
+  padding: 4px;
+}
+
+select {
+  padding: 4px;
+}
+
+tr[data-url]:hover {
+  cursor: pointer;
+  background-color: rgb(242, 242, 229);
+}
+
+.box {
+  box-shadow: 0 0 4px lightgray, 2px 2px 4px gray;
+}
+
+table.pagination {
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+table.pagination td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+table.pagination td.active {
+  background-color: #373a6d;
+  color: rgb(242, 242, 229);
+}
+
+table.pagination a {
+  text-decoration: none;
+  color: blue;
+  display: inline-block;
+  width: 25px;
+  padding: 6px;
+}
+
+table.pagination td.active a {
+  color: white;
+}

@@ -1,5 +1,7 @@
 package com.lms.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +12,7 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name="book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +23,11 @@ public class Book {
     String publisher;
     long isbn;
     String callNum;
-    
+    Date regiDate;
+    boolean newBook;
+    boolean checkImg;
+    String story;
+
     @ManyToOne
     @JoinColumn(name = "stateId")
     State state;

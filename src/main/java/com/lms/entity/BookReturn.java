@@ -1,6 +1,6 @@
 package com.lms.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,23 +12,23 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name="bookreturn")
 public class BookReturn {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	Date borrow_date;
-	Date return_date;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    LocalDate borrowDate;
+    LocalDate returnDate;
+
     @ManyToOne
     @JoinColumn(name = "bookId")
     Book book;
-    
+
     @ManyToOne
     @JoinColumn(name = "userId")
     User user;
-    
-//    @ManyToOne
-//    @JoinColumn(name = "state_id")
-//    State state;
+
+    @ManyToOne
+    @JoinColumn(name = "stateId")
+    State state;
 }

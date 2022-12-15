@@ -1,0 +1,69 @@
+/* 신간도서 */
+.newbook {
+  display: inline-block;
+  margin: 20px 30px;
+}
+
+.newBook_Title {
+  background-color: #6fb8c7;
+  margin-bottom: -10px;
+  color: #FFF;
+  pointer-events : auto;
+  padding: 5px;
+}
+
+.newBook_Img {
+  margin-top: 30px;
+  border: 1px solid #000;
+  width: 180px;
+  height: 250px;
+}
+
+.newBook_Slider {
+  margin-top: 80px;
+  height: 400px;
+  position: relative;
+}
+
+.newBook_Slider > .newBook_btns {
+  text-align: left;
+  margin-left: 30px;
+  position: absolute;
+  bottom: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.newBook_Slider > .newBook_btns > div {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(231, 227, 227, 0.5);
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.newBook_Slider > .newBook_btns > div.active {
+  background-color: #6fc2d0;
+  padding: 3px;
+}
+
+.newBook_Slider > .slides > div {
+  position: absolute;
+  transition: opacity 0.3s;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.newBook_Slider > .slides > div.active {
+  opacity: 1;
+}
+
+a {
+  cursor: pointer;
+}

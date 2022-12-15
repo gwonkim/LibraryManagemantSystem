@@ -1,0 +1,151 @@
+.contents {
+  width: 40%;
+  display: inline-flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 50px 15px;
+  max-width: 1200px;
+  max-width: 50%;
+  min-height: 300px;
+  padding: 0;
+  border-top: 5px solid rgb(218, 218, 218);
+  border-bottom: 5px solid rgb(218, 218, 218);
+  vertical-align: middle;
+}
+
+.contentsM {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 1em;
+  margin: 100px auto;
+  border-top: 5px solid rgb(218, 218, 218);
+  border-bottom: 5px solid rgb(218, 218, 218);
+  max-width: 1200px;
+}
+
+.bookImgContent {
+  display: inline-block;
+}
+
+.bookInfoContent {
+  display: inline-block;
+  min-width: calc(100%-200px);
+  margin: 10px 0;
+}
+
+.bookImg {
+  display: inline-block;
+  max-width: 210px;
+  width: auto;
+  height: 300px;
+  padding: 10px;
+}
+
+.bookTitle {
+  text-align: left;
+  font-size: 2em;
+}
+
+.bookInfo {
+  text-align: left;
+  list-style: none;
+  font-size: 1em;
+  width: 100%;
+  margin: 5px;
+}
+
+.bookInfo > span {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.state {
+  color: rgb(241, 20, 20);
+  font-weight: 600;
+}
+
+select,
+input,
+.search_btn {
+  font-size: 1em;
+}
+
+select {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin-top: 10px;
+}
+input {
+  height: 30px;
+  width: 50%;
+  border: none;
+  outline: 0;
+}
+
+.bookSearch {
+  border: 2px solid darkcyan;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.search_btn {
+  width: 50px;
+  height: 30px;
+  padding: 10px;
+  box-shadow: none;
+  vertical-align: middle;
+  border: none;
+  outline: 0;
+  background: transparent;
+}
+
+.book_link {
+  text-decoration: none;
+  color: #000;
+}
+
+/* ICON */
+.search_btn > span {
+  font-size: 40px;
+  color: darkcyan;
+  margin-top: -15px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 200, "opsz" 48;
+}
+
+/* PAGINATION */
+.pagination {
+  display: inline;
+  border-collapse: collapse;
+  margin-top: 1em;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+}
+.pagination td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.pagination .active {
+  background-color: #373a6d;
+  color: #6fc2d0;
+  font-weight: 600;
+}
+.pagination a {
+  text-decoration: none;
+  color: rgb(46, 60, 94);
+  display: inline-block;
+  width: 25px;
+  padding: 6px;
+}
+.pagination .active a {
+  color: white;
+}
